@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapeo de Problemas - Technovation Girls</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        .presentation-container {
+            width: 90%;
+            max-width: 900px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            padding: 60px;
+            min-height: 500px;
+            animation: slideIn 0.5s ease;
+            position: relative;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        h1 {
+            color: #764ba2;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .navigation {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        @media (hover: none) {
+            button:hover {
+                background: #667eea;
+                transform: none;
+                box-shadow: none;
+            }
+            button:active {
+                background: #764ba2;
+                transform: scale(0.95);
+            }
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .emoji {
+            font-size: 2em;
+            margin: 0 10px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .step-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .step-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .icon-circle {
+            background: #764ba2;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.5em;
+            flex-shrink: 0;
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .material-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px 15px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .material-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .highlight {
+            background: linear-gradient(to right, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .question-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .tip-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            padding-left: 70px;
+        }
+
+        .tip-card::before {
+            content: '💡';
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5em;
+        }
+
+        .brainstorm-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .brain-center {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: white;
+            z-index: 2;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .branch {
+            position: absolute;
+            background: #764ba2;
+            height: 4px;
+            width: 80px;
+            transform-origin: left center;
+        }
+
+        .branch::after {
+            content: '💭';
+            position: absolute;
+            right: -20px;
+            top: -15px;
+            font-size: 1.5em;
+        }
+
+        .video-container {
+            background: #000;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-placeholder {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+        }
+
+        .video-placeholder a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder a:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+
+        .online-box {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            color: white;
+        }
+
+        .online-box h3 {
+            color: white;
+        }
+
+        .padlet-link {
+            display: inline-block;
+            background: white;
+            color: #4facfe;
+            padding: 10px 25px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .padlet-link:hover {
+            transform: scale(1.05);
+        }
+
+        .repeat-box {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .motivational-quote {
+            text-align: center;
+            font-size: 1.3em;
+            color: #764ba2;
+            font-style: italic;
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8e9ff 100%);
+            border-radius: 15px;
+        }
+
+        .problem-example {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .problem-circle {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .problem-circle:hover {
+            transform: scale(1.1);
+        }
+
+        .circle-personal {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .circle-community {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        @media (max-width: 768px) {
+            .slide { padding: 30px; }
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.4em; }
+            .materials-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slide-number" id="slideNumber">1 / 8</div>
+        
+        <!-- Slide 1: Título -->
+        <div class="slide active">
+            <h1>🗺️ ¡Mapeo de Problemas!</h1>
+            <div style="text-align: center; margin-top: 50px;">
+                <div class="emoji">🧠</div>
+                <h2 style="border: none; color: #764ba2;">Technovation Girls</h2>
+                <p style="font-size: 1.3em; margin-top: 30px;">Beginner Division - Sesión 2</p>
+                <p style="font-size: 1.1em; margin-top: 20px; color: #667eea;">
+                    ¡Vamos a crear más ideas a partir de nuestros problemas!
+                </p>
+            </div>
+            <div class="question-box" style="margin-top: 50px;">
+                <strong>Hoy aprenderás:</strong> A explorar problemas en profundidad usando la técnica de BRAINSTORMING
+            </div>
+        </div>
+
+        <!-- Slide 2: Recordatorio -->
+        <div class="slide">
+            <h1>¿Qué hemos hecho hasta ahora? 📝</h1>
+            
+            <p style="font-size: 1.2em; text-align: center; margin-bottom: 30px;">
+                Ya habéis identificado algunos problemas que os gustaría resolver...
+            </p>
+
+            <div class="problem-example">
+                <div class="problem-circle circle-personal">
+                    <div style="font-size: 2em;">👤</div>
+                    <span>Problemas personales</span>
+                </div>
+                <div class="problem-circle circle-community">
+                    <div style="font-size: 2em;">🏘️</div>
+                    <span>Problemas de comunidad</span>
+                </div>
+            </div>
+
+            <div class="tip-card" style="margin-top: 40px;">
+                Ahora vamos a seleccionar UN problema cada una y pensar juntas en ideas sobre esos problemas, ¡uno por uno!
+            </div>
+
+            <div class="motivational-quote">
+                "Las mejores ideas nacen cuando pensamos juntas"
+            </div>
+        </div>
+
+        <!-- Slide 3: ¿Qué es Brainstorming? -->
+        <div class="slide">
+            <h1>¿Qué es el Brainstorming? 🌪️</h1>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <p style="font-size: 1.4em;">
+                    Usar tu <span class="highlight">CEREBRO (BRAIN)</span> para hacer una <span class="highlight">TORMENTA (STORM)</span> de ideas
+                </p>
+            </div>
+
+            <div class="brainstorm-visual">
+                <div class="brain-center">🧠</div>
+            </div>
+
+            <div class="info-box">
+                <div class="step-item">
+                    <div class="icon-circle">💭</div>
+                    <span>Generar MUCHAS ideas sin juzgarlas</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">🔗</div>
+                    <span>Conectar ideas entre sí</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">🎨</div>
+                    <span>¡Todas las ideas valen!</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Materiales -->
+        <div class="slide">
+            <h1>¿Qué Necesitamos? 🎒</h1>
+            
+            <div class="materials-grid">
+                <div class="material-card">
+                    <div style="font-size: 3em;">👭</div>
+                    <h3>Tu equipo</h3>
+                    <p>O puedes trabajar sola</p>
+                </div>
+                <div class="material-card">
+                    <div style="font-size: 3em;">📄</div>
+                    <h3>Hojas GRANDES</h3>
+                    <p>Varias hojas de papel</p>
+                </div>
+                <div class="material-card">
+                    <div style="font-size: 3em;">🖍️</div>
+                    <h3>Rotuladores</h3>
+                    <p>De diferentes colores</p>
+                </div>
+            </div>
+
+            <div class="tip-card">
+                <strong>¡Importante!</strong> Cada persona del equipo debe elegir un color diferente de rotulador. Así sabremos quién tuvo cada idea.
+            </div>
+        </div>
+
+        <!-- Slide 5: Actividad paso a paso -->
+        <div class="slide">
+            <h1>Actividad: Mapeo de Problemas 🗺️</h1>
+            
+            <h2 style="text-align: center; border: none;">Sigue estos pasos:</h2>
+            
+            <div class="info-box">
+                <div class="step-item">
+                    <div class="icon-circle">1</div>
+                    <span><strong>Elige</strong> uno de los problemas que escribiste antes</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">2</div>
+                    <span><strong>Escríbelo</strong> en el CENTRO de tu hoja</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">3</div>
+                    <span><strong>Elige</strong> un rotulador de color</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">4</div>
+                    <span><strong>Escribe</strong> tus ideas como RAMAS del problema principal</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">5</div>
+                    <span>Si una rama te da nuevas ideas, <strong>conéctalas</strong> a esa rama</span>
+                </div>
+            </div>
+
+            <div class="question-box" style="text-align: center;">
+                <strong>🎥 ¡Veamos cómo se hace!</strong>
+            </div>
+        </div>
+
+        <!-- Slide 6: Video -->
+        <div class="slide">
+            <h1>¡Mira el Ejemplo! 🎬</h1>
+            
+            <div class="video-placeholder">
+                <div style="font-size: 4em;">🎬</div>
+                <h3>Video: Cómo hacer un Mapa de Problemas</h3>
+                <p>Haz clic para ver el ejemplo en la página de Technovation</p>
+                <a href="https://technovationchallenge.org/wp-content/uploads/2024/05/problem-mapping-short.mp4" target="_blank">▶️ Ver Video</a>
+            </div>
+
+            <div class="tip-card" style="margin-top: 20px;">
+                Observa cómo las ideas se conectan unas con otras formando ramas. ¡Es como un árbol de ideas!
+            </div>
+        </div>
+
+        <!-- Slide 7: Opción Online con Padlet -->
+        <div class="slide">
+            <h1>¿Trabajáis Online? 💻</h1>
+            
+            <div class="online-box">
+                <h3>Usad Padlet para vuestro mapeo</h3>
+                <p style="margin: 15px 0;">Una herramienta genial para colaborar a distancia</p>
+                <a href="https://padlet.com/" target="_blank" class="padlet-link">🔗 Ir a Padlet.com</a>
+            </div>
+
+            <div class="info-box">
+                <div class="step-item">
+                    <div class="icon-circle">1</div>
+                    <span>Registraos con ayuda de vuestros padres</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">2</div>
+                    <span>Cread un nuevo Padlet (plantilla Canvas recomendada)</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">3</div>
+                    <span>Invitad a las compañeras de equipo</span>
+                </div>
+            </div>
+
+            <div class="video-placeholder" style="margin-top: 20px;">
+                <div style="font-size: 3em;">💻</div>
+                <h3>Video: Cómo usar Padlet</h3>
+                <p>Aprende a crear tu mapa de problemas online</p>
+                <a href="https://technovationchallenge.org/wp-content/uploads/2024/05/padlet-problem-mapping.mp4" target="_blank">▶️ Ver Video</a>
+            </div>
+        </div>
+
+        <!-- Slide 8: Repetir y guardar -->
+        <div class="slide">
+            <h1>¡Y Repetimos! 🔄</h1>
+            
+            <div class="repeat-box">
+                <div style="font-size: 3em; margin-bottom: 20px;">✨</div>
+                <h2 style="color: white; border: none;">Ahora hazlo con OTRO problema</h2>
+                <p style="font-size: 1.2em; margin-top: 15px;">
+                    Usa una hoja nueva o un nuevo Padlet
+                </p>
+            </div>
+
+            <div class="info-box">
+                <div class="step-item">
+                    <div class="icon-circle">💾</div>
+                    <span><strong>GUARDAD</strong> todos vuestros mapas de problemas</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">🤔</div>
+                    <span><strong>PENSAD</strong> qué problemas os gustaría resolver</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">💬</div>
+                    <span><strong>COMPARTID</strong> vuestras ideas con el equipo</span>
+                </div>
+            </div>
+
+            <div class="motivational-quote">
+                "De todas estas ideas, ¡nacerá vuestra app! 🚀"
+            </div>
+
+            <div class="question-box" style="text-align: center;">
+                <strong>¿Preguntas?</strong> 🤔
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button id="prevBtn" type="button">← Anterior</button>
+            <button id="nextBtn" type="button">Siguiente →</button>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            var currentSlide = 1;
+            var totalSlides = 8;
+            var slides = document.getElementsByClassName('slide');
+            var slideNumber = document.getElementById('slideNumber');
+            var prevBtn = document.getElementById('prevBtn');
+            var nextBtn = document.getElementById('nextBtn');
+
+            function showSlide(n) {
+                if (n > totalSlides) n = totalSlides;
+                if (n < 1) n = 1;
+                currentSlide = n;
+
+                for (var i = 0; i < slides.length; i++) {
+                    slides[i].classList.remove('active');
+                }
+
+                slides[currentSlide - 1].classList.add('active');
+                slideNumber.textContent = currentSlide + ' / ' + totalSlides;
+
+                prevBtn.disabled = (currentSlide === 1);
+                nextBtn.disabled = (currentSlide === totalSlides);
+            }
+
+            function nextSlide(e) {
+                if (e) e.preventDefault();
+                if (currentSlide < totalSlides) {
+                    showSlide(currentSlide + 1);
+                }
+            }
+
+            function prevSlide(e) {
+                if (e) e.preventDefault();
+                if (currentSlide > 1) {
+                    showSlide(currentSlide - 1);
+                }
+            }
+
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('touchend', prevSlide);
+            nextBtn.addEventListener('touchend', nextSlide);
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') prevSlide();
+                if (e.key === 'ArrowRight') nextSlide();
+            });
+
+            showSlide(1);
+        })();
+    </script>
+</body>
+</html>
