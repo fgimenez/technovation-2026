@@ -4,173 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technovation Girls 2026 - Presentaciones</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
-            color: #333;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 60px;
-            animation: fadeInDown 0.8s ease;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h1 {
-            color: white;
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        .subtitle {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.3em;
-            font-weight: 300;
-        }
-
-        .emoji {
-            font-size: 3em;
-            animation: bounce 2s infinite;
-            display: inline-block;
-            margin: 20px 0;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .slides-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .slide-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .slide-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(to right, #667eea, #764ba2);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .slide-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .slide-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
-        }
-
-        .slide-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .slide-title {
-            color: #764ba2;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        .slide-description {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .slide-session {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-
-        .info-box {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            margin-bottom: 40px;
-        }
-
-        .info-box h2 {
-            color: #764ba2;
-            margin-bottom: 15px;
-        }
-
-        .info-box p {
-            color: #666;
-            line-height: 1.8;
-        }
-
-        footer {
-            text-align: center;
-            color: white;
-            padding: 20px;
-            font-size: 0.9em;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-
-            .slides-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <div class="container">
@@ -189,6 +24,22 @@
             </p>
         </div>
 
+        <div class="info-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h2 style="color: white; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 10px;">📚 Sesiones</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+                <a href="slides/01/index.html" class="session-link">
+                    <div style="font-size: 2em; margin-bottom: 10px;">🎯</div>
+                    Sesión 01
+                    <div style="font-size: 0.9em; font-weight: normal; margin-top: 5px; color: #666;">Identificar Problemas y Algoritmos</div>
+                </a>
+                <a href="slides/02/index.html" class="session-link">
+                    <div style="font-size: 2em; margin-bottom: 10px;">🗺️</div>
+                    Sesión 02
+                    <div style="font-size: 0.9em; font-weight: normal; margin-top: 5px; color: #666;">Mapeo de Problemas</div>
+                </a>
+            </div>
+        </div>
+
         <div class="slides-grid" id="slidesContainer">
             <!-- Slides will be dynamically loaded here -->
         </div>
@@ -199,54 +50,6 @@
         </footer>
     </div>
 
-    <script>
-        // Add your slides here - this array can be easily updated when new slides are added
-        const slides = [
-            {
-                session: "Sesión 01",
-                title: "Identificar Problemas",
-                description: "Aprende a identificar problemas reales en tu familia, escuela y comunidad que puedas resolver con tecnología.",
-                icon: "🔍",
-                path: "slides/01/identificar-problemas-presentacion.html"
-            },
-            {
-                session: "Sesión 01",
-                title: "Introducción a Algoritmos",
-                description: "Descubre qué son los algoritmos y cómo funcionan. ¡El primer paso para crear tu app!",
-                icon: "🤖",
-                path: "slides/01/algoritmos-presentacion.html"
-            },
-            {
-                session: "Sesión 02",
-                title: "Mapeo de Problemas",
-                description: "Organiza y prioriza los problemas que has identificado para elegir el mejor para tu proyecto.",
-                icon: "🗺️",
-                path: "slides/02/mapeo-problemas-presentacion.html"
-            }
-        ];
-
-        // Function to create slide cards
-        function loadSlides() {
-            const container = document.getElementById('slidesContainer');
-
-            slides.forEach(slide => {
-                const card = document.createElement('a');
-                card.href = slide.path;
-                card.className = 'slide-card';
-
-                card.innerHTML = `
-                    <span class="slide-session">${slide.session}</span>
-                    <div class="slide-icon">${slide.icon}</div>
-                    <h3 class="slide-title">${slide.title}</h3>
-                    <p class="slide-description">${slide.description}</p>
-                `;
-
-                container.appendChild(card);
-            });
-        }
-
-        // Load slides when page loads
-        document.addEventListener('DOMContentLoaded', loadSlides);
-    </script>
+    <script src="js/slides-data.js"></script>
 </body>
 </html>
