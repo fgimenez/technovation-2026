@@ -20,6 +20,27 @@ const slides = [
         description: "Organiza y prioriza los problemas que has identificado para elegir el mejor para tu proyecto.",
         icon: "🗺️",
         path: "slides/02/mapeo-problemas-presentacion.html"
+    },
+    {
+        session: "Sesión 03",
+        title: "Introducción ODS de la ONU",
+        description: "Descubre los 17 Objetivos de Desarrollo Sostenible y cómo tu app puede contribuir a un mundo mejor.",
+        icon: "🌍",
+        path: "slides/03/ods-presentacion.html"
+    },
+    {
+        session: "Sesión 03",
+        title: "Elige tu Problema a Resolver",
+        description: "Actividad para votar y elegir el problema que tu equipo resolverá con la app.",
+        icon: "🗳️",
+        path: "slides/03/elegir-problema-presentacion.html"
+    },
+    {
+        session: "Sesión 03",
+        title: "Introducción a AppInventor",
+        description: "Conoce MIT App Inventor y los tipos de bloques que usarás para crear tu aplicación.",
+        icon: "📱",
+        path: "slides/03/appinventor-presentacion.html"
     }
 ];
 
