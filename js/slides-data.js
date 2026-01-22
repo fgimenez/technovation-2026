@@ -53,6 +53,8 @@ function loadSlides() {
         return;
     }
 
+    console.log(`Cargando ${slides.length} presentaciones...`);
+
     slides.forEach(slide => {
         const card = document.createElement('a');
         card.href = slide.path;
@@ -67,6 +69,8 @@ function loadSlides() {
 
         container.appendChild(card);
     });
+
+    console.log('Presentaciones cargadas correctamente');
 }
 
 // Cargar slides cuando la página esté lista
