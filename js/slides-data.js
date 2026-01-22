@@ -5,42 +5,42 @@ const slides = [
         title: "Identificar Problemas",
         description: "Aprende a identificar problemas reales en tu familia, escuela y comunidad que puedas resolver con tecnología.",
         icon: "🔍",
-        path: "slides/01/identificar-problemas-presentacion.html"
+        path: "slides/01/identificar-problemas.html"
     },
     {
         session: "Sesión 01",
         title: "Introducción a Algoritmos",
         description: "Descubre qué son los algoritmos y cómo funcionan. ¡El primer paso para crear tu app!",
         icon: "🤖",
-        path: "slides/01/algoritmos-presentacion.html"
+        path: "slides/01/algoritmos.html"
     },
     {
         session: "Sesión 02",
         title: "Mapeo de Problemas",
         description: "Organiza y prioriza los problemas que has identificado para elegir el mejor para tu proyecto.",
         icon: "🗺️",
-        path: "slides/02/mapeo-problemas-presentacion.html"
+        path: "slides/02/mapeo-problemas.html"
     },
     {
         session: "Sesión 03",
         title: "Introducción ODS de la ONU",
         description: "Descubre los 17 Objetivos de Desarrollo Sostenible y cómo tu app puede contribuir a un mundo mejor.",
         icon: "🌍",
-        path: "slides/03/ods-presentacion.html"
+        path: "slides/03/ods.html"
     },
     {
         session: "Sesión 03",
         title: "Elige tu Problema a Resolver",
         description: "Actividad para votar y elegir el problema que tu equipo resolverá con la app.",
         icon: "🗳️",
-        path: "slides/03/elegir-problema-presentacion.html"
+        path: "slides/03/elegir-problema.html"
     },
     {
         session: "Sesión 03",
         title: "Introducción a AppInventor",
         description: "Conoce MIT App Inventor y los tipos de bloques que usarás para crear tu aplicación.",
         icon: "📱",
-        path: "slides/03/appinventor-presentacion.html"
+        path: "slides/03/appinventor.html"
     }
 ];
 
