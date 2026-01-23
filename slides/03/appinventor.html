@@ -13,7 +13,7 @@
             <a href="../../index.html" class="nav-link">🏠 Inicio</a>
             <a href="index.html" class="nav-link">📚 Sesión 03</a>
         </div>
-        <div class="slide-number" id="slideNumber">1 / 9</div>
+        <div class="slide-number" id="slideNumber">1 / 15</div>
 
         <!-- Slide 1: Título -->
         <div class="slide active">
@@ -202,40 +202,48 @@
 
             <div class="repeat-box">
                 <div style="font-size: 3em; margin-bottom: 20px;">🏠</div>
-                <h2 style="color: white; border: none;">¡Crea tu primera app!</h2>
+                <h2 style="color: white; border: none;">¡Crea tu primer proyecto!</h2>
                 <p style="font-size: 1.2em; margin-top: 15px;">
-                    Una app con un botón que diga "¡Hola!"
+                    Vamos a preparar la pantalla de tu app
                 </p>
             </div>
 
             <div class="materials-grid" style="margin-top: 40px;">
                 <div class="material-card">
                     <div style="font-size: 3em;">📱</div>
-                    <h3>Tu App</h3>
-                    <p>Un botón en la pantalla</p>
+                    <h3>Nuevo Proyecto</h3>
+                    <p>Crea un proyecto en App Inventor</p>
                 </div>
                 <div class="material-card">
-                    <div style="font-size: 3em;">👆</div>
-                    <h3>Al tocarlo</h3>
-                    <p>Muestra el mensaje "¡Hola!"</p>
+                    <div style="font-size: 3em;">🔘</div>
+                    <h3>Botón</h3>
+                    <p>Añade un botón que diga "Di hola"</p>
                 </div>
                 <div class="material-card">
-                    <div style="font-size: 3em;">🎉</div>
-                    <h3>¡Listo!</h3>
-                    <p>Tu primera app funcionando</p>
+                    <div style="font-size: 3em;">🏷️</div>
+                    <h3>Etiqueta</h3>
+                    <p>Añade una etiqueta (Label)</p>
                 </div>
             </div>
 
             <div class="tip-card" style="margin-top: 40px;">
-                <strong>Próxima diapositiva:</strong> Te explicamos todos los pasos para hacerlo
+                <strong>Próxima sesión:</strong> Le daremos vida a tu app con bloques de programación
+            </div>
+
+            <div class="info-box" style="margin-top: 20px;">
+                <div class="step-item">
+                    <div class="icon-circle">📄</div>
+                    <span><strong>Para los padres:</strong> Si necesitan ayuda para crear una cuenta en App Inventor, pueden consultar
+                    <a href="../../assets/appinventor_crear_cuenta.pdf" target="_blank" style="color: #667eea; text-decoration: underline;">este documento con instrucciones</a>.</span>
+                </div>
             </div>
         </div>
 
-        <!-- Slide 8: Pasos para Crear tu App -->
+        <!-- Slide 8: Paso 1 - Iniciar Sesión -->
         <div class="slide">
-            <h1>Pasos para Crear tu App 👣</h1>
+            <h1>Paso 1: Inicia Sesión 🔐</h1>
 
-            <div class="info-box">
+            <div class="info-box" style="margin-bottom: 30px;">
                 <div class="step-item">
                     <div class="icon-circle">1</div>
                     <span>Ve a <strong>appinventor.mit.edu</strong> en tu navegador</span>
@@ -246,59 +254,172 @@
                 </div>
                 <div class="step-item">
                     <div class="icon-circle">3</div>
-                    <span>Inicia sesión con una cuenta de <strong>Gmail</strong> (pide ayuda a tus padres si no tienes)</span>
+                    <span>Inicia sesión con tu cuenta de <strong>Gmail</strong></span>
                 </div>
-                <div class="step-item">
-                    <div class="icon-circle">4</div>
-                    <span>Haz clic en <strong>"Start new project"</strong> y ponle un nombre (por ejemplo: "MiHola")</span>
-                </div>
-                <div class="step-item">
-                    <div class="icon-circle">5</div>
-                    <span>En el <strong>Diseñador</strong>, arrastra un <strong>Button</strong> (botón) a la pantalla</span>
-                </div>
-                <div class="step-item">
-                    <div class="icon-circle">6</div>
-                    <span>Ve a <strong>"Blocks"</strong> (arriba a la derecha)</span>
-                </div>
-                <div class="step-item">
-                    <div class="icon-circle">7</div>
-                    <span>Conecta los bloques: "when Button1.Click" con "show alert" (mensaje "¡Hola!")</span>
-                </div>
-                <div class="step-item">
-                    <div class="icon-circle">8</div>
-                    <span><strong>¡Pruébala!</strong> Usa el emulador o tu móvil con la app MIT AI2 Companion</span>
-                </div>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <img src="../../assets/appinventor_init.png" alt="Pantalla inicial de App Inventor" style="max-width: 90%; border: 2px solid #667eea; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            </div>
+
+            <div class="tip-card" style="margin-top: 20px;">
+                <strong>¡Verás esta pantalla!</strong> Aquí aparecerán todos tus proyectos
             </div>
         </div>
 
-        <!-- Slide 9: ¡A Empezar! -->
+        <!-- Slide 9: Paso 2 - Crear Proyecto -->
+        <div class="slide">
+            <h1>Paso 2: Crea un Nuevo Proyecto 📱</h1>
+
+            <div class="info-box" style="margin-bottom: 30px;">
+                <div class="step-item">
+                    <div class="icon-circle">1</div>
+                    <span>Haz clic en <strong>"Start new project"</strong></span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">2</div>
+                    <span>Ponle un nombre (por ejemplo: <strong>"MiPrimeraApp"</strong>)</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">3</div>
+                    <span>Haz clic en <strong>"OK"</strong></span>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <img src="../../assets/appinventor_new_project.png" alt="Diálogo de nuevo proyecto" style="max-width: 90%; border: 2px solid #667eea; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            </div>
+
+            <div class="tip-card" style="margin-top: 20px;">
+                <strong>Importante:</strong> El nombre no puede tener espacios ni caracteres especiales
+            </div>
+        </div>
+
+        <!-- Slide 10: Paso 3 - Añadir Botón -->
+        <div class="slide">
+            <h1>Paso 3: Añade un Botón 🔘</h1>
+
+            <div class="info-box" style="margin-bottom: 20px;">
+                <div class="step-item">
+                    <div class="icon-circle">1</div>
+                    <span>En el panel izquierdo, busca <strong>"Button"</strong> en la sección <strong>"User Interface"</strong></span>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="../../assets/appinventor_button_selected.png" alt="Botón seleccionado" style="max-width: 90%; border: 2px solid #667eea; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <p style="font-size: 1.1em; margin-top: 15px; color: #667eea;">Selecciona el componente Button</p>
+            </div>
+        </div>
+
+        <!-- Slide 11: Paso 4 - Arrastrar Botón -->
+        <div class="slide">
+            <h1>Paso 4: Arrastra el Botón a la Pantalla 👆</h1>
+
+            <div class="info-box" style="margin-bottom: 20px;">
+                <div class="step-item">
+                    <div class="icon-circle">2</div>
+                    <span><strong>Arrastra</strong> el Button hasta el área del <strong>"Viewer"</strong> (la pantalla del móvil)</span>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="../../assets/appinventor_button_on_screen.png" alt="Botón en la pantalla" style="max-width: 90%; border: 2px solid #667eea; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <p style="font-size: 1.1em; margin-top: 15px; color: #667eea;">¡El botón ya está en tu pantalla!</p>
+            </div>
+        </div>
+
+        <!-- Slide 12: Paso 5 - Cambiar Texto del Botón -->
+        <div class="slide">
+            <h1>Paso 5: Cambia el Texto del Botón ✏️</h1>
+
+            <div class="info-box" style="margin-bottom: 20px;">
+                <div class="step-item">
+                    <div class="icon-circle">1</div>
+                    <span>Con el botón seleccionado, mira el panel de la derecha (<strong>"Properties"</strong>)</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">2</div>
+                    <span>Busca la propiedad <strong>"Text"</strong></span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">3</div>
+                    <span>Cambia el texto a <strong>"Di hola"</strong></span>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="../../assets/appinventor_button_di_hola.png" alt="Botón con texto Di hola" style="max-width: 90%; border: 2px solid #667eea; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <p style="font-size: 1.1em; margin-top: 15px; color: #667eea;">¡Ahora tu botón dice "Di hola"!</p>
+            </div>
+        </div>
+
+        <!-- Slide 13: Paso 6 - Añadir Label -->
+        <div class="slide">
+            <h1>Paso 6: Añade una Etiqueta (Label) 🏷️</h1>
+
+            <div class="info-box" style="margin-bottom: 20px;">
+                <div class="step-item">
+                    <div class="icon-circle">1</div>
+                    <span>En el panel izquierdo, busca <strong>"Label"</strong> en la sección <strong>"User Interface"</strong></span>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="../../assets/appinventor_label_selected.png" alt="Label seleccionado" style="max-width: 90%; border: 2px solid #667eea; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <p style="font-size: 1.1em; margin-top: 15px; color: #667eea;">Selecciona el componente Label</p>
+            </div>
+        </div>
+
+        <!-- Slide 14: Paso 7 - Arrastrar Label -->
+        <div class="slide">
+            <h1>Paso 7: Arrastra el Label a la Pantalla 👆</h1>
+
+            <div class="info-box" style="margin-bottom: 20px;">
+                <div class="step-item">
+                    <div class="icon-circle">2</div>
+                    <span><strong>Arrastra</strong> el Label hasta el área del <strong>"Viewer"</strong></span>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="../../assets/appinventor_label_on_screen.png" alt="Label en la pantalla" style="max-width: 90%; border: 2px solid #667eea; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <p style="font-size: 1.1em; margin-top: 15px; color: #667eea;">¡Perfecto! Ya tienes un botón y una etiqueta</p>
+            </div>
+
+            <div class="tip-card" style="margin-top: 20px;">
+                <strong>¡Tarea completada!</strong> En la próxima sesión programaremos estos elementos
+            </div>
+        </div>
+
+        <!-- Slide 15: ¡A Empezar! -->
         <div class="slide">
             <h1>¡Estás Lista para Empezar! 🚀</h1>
 
             <div style="text-align: center; margin: 40px 0;">
                 <div style="font-size: 5em;">🌟</div>
                 <p style="font-size: 1.3em; margin-top: 20px;">
-                    Con App Inventor vas a crear <span class="highlight">tu propia app</span>
+                    Has dado el <span class="highlight">primer paso</span> en tu camino como desarrolladora
                 </p>
             </div>
 
             <div class="info-box">
                 <div class="step-item">
-                    <div class="icon-circle">💡</div>
-                    <span>Tienes una <strong>idea</strong> para resolver un problema</span>
+                    <div class="icon-circle">✅</div>
+                    <span><strong>Hoy:</strong> Diseña la interfaz de tu app (botón y etiqueta)</span>
                 </div>
                 <div class="step-item">
-                    <div class="icon-circle">🎨</div>
-                    <span>Ahora tienes la <strong>herramienta</strong> para hacerla realidad</span>
+                    <div class="icon-circle">🧩</div>
+                    <span><strong>Próxima sesión:</strong> Programaremos con bloques para que funcione</span>
                 </div>
                 <div class="step-item">
-                    <div class="icon-circle">✨</div>
-                    <span>¡Solo necesitas tu <strong>creatividad</strong> y ganas de aprender!</span>
+                    <div class="icon-circle">🎯</div>
+                    <span><strong>Tu objetivo:</strong> Una app que responda cuando toques el botón</span>
                 </div>
             </div>
 
             <div class="motivational-quote" style="margin-top: 40px;">
-                "Tu app puede cambiar el mundo"
+                "Cada gran app comienza con un primer botón"
             </div>
 
             <div class="question-box" style="text-align: center; margin-top: 40px;">
@@ -315,7 +436,7 @@
 
     <script src="../../js/presentation.js"></script>
     <script>
-        initPresentation(9);
+        initPresentation(15);
     </script>
 </body>
 </html>
