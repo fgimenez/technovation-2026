@@ -37,10 +37,17 @@ const slides = [
     },
     {
         session: "Sesión 03",
-        title: "Introducción a AppInventor",
-        description: "Conoce MIT App Inventor y los tipos de bloques que usarás para crear tu aplicación.",
-        icon: "📱",
+        title: "AppInventor Parte 1: Designer",
+        description: "Conoce MIT App Inventor y aprende a diseñar la estructura visual de tu app con la sección Designer.",
+        icon: "🎨",
         path: "slides/03/appinventor.html"
+    },
+    {
+        session: "Sesión 04",
+        title: "AppInventor Parte 2: Blocks",
+        description: "Programa la funcionalidad de tu app con bloques para que responda a las acciones del usuario.",
+        icon: "⚙️",
+        path: "slides/04/appinventor-blocks.html"
     }
 ];
 
