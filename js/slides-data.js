@@ -48,6 +48,13 @@ const slides = [
         description: "Programa la funcionalidad de tu app con bloques para que responda a las acciones del usuario.",
         icon: "⚙️",
         path: "slides/04/appinventor-blocks.html"
+    },
+    {
+        session: "Sesión 05",
+        title: "Creación de Prototipos",
+        description: "Aprende qué es un prototipo, por qué son importantes, y cómo crear prototipos en papel antes de programar.",
+        icon: "✏️",
+        path: "slides/05/prototipos.html"
     }
 ];
 
