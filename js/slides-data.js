@@ -69,6 +69,13 @@ const slides = [
         description: "Aprende a usar bloques condicionales (if/then/else) para que tu app tome decisiones.",
         icon: "🔀",
         path: "slides/06/condicionales-app-inventor.html"
+    },
+    {
+        session: "Sesión 06",
+        title: "Plan de Proyecto SonRISAS",
+        description: "Plan detallado con tareas, fechas y responsables para cada funcionalidad de la app SonRISAS.",
+        icon: "📅",
+        path: "slides/06/plan-proyecto.html"
     }
 ];
 

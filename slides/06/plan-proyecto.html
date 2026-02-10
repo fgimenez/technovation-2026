@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Proyecto SonRISAS - Technovation Girls</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/presentation.css">
+    <style>
+        /* Estilos para tablas del plan de proyecto */
+        .plan-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .plan-table thead tr {
+            background: linear-gradient(135deg, #00bcd4, #0097a7);
+            color: white;
+            text-align: left;
+        }
+        .plan-table th {
+            padding: 12px 15px;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+        .plan-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        .plan-table tbody tr:nth-child(even) {
+            background: #f8f9ff;
+        }
+        .plan-table tbody tr:hover {
+            background: #e8e9ff;
+        }
+        .plan-table .task-name {
+            color: #e91e63;
+            font-weight: 600;
+        }
+        .plan-table .who-col {
+            color: #999;
+            font-style: italic;
+            min-width: 120px;
+        }
+        .plan-table .date-col {
+            color: #e91e63;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .feature-header {
+            background: white;
+            border: 2px solid #00bcd4;
+            border-radius: 12px;
+            padding: 12px 20px;
+            margin-bottom: 10px;
+        }
+        .feature-header h2 {
+            border: none;
+            margin: 0;
+            padding: 0;
+            font-size: 1.2em;
+        }
+        .feature-name {
+            color: #e91e63;
+            font-size: 1.1em;
+        }
+        .resources-box {
+            background: #fff9c4;
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        .resources-box strong {
+            color: #f57f17;
+        }
+        .blockers-box {
+            background: #fce4ec;
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin-top: 8px;
+            font-size: 0.9em;
+        }
+        .blockers-box strong {
+            color: #c62828;
+        }
+        .mvp-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e91e63, #c2185b);
+            color: white;
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        .nice-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+            color: white;
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        .timeline-week {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            margin: 6px 0;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .timeline-week:hover {
+            transform: translateX(5px);
+        }
+        .week-number {
+            background: #764ba2;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-size: 0.9em;
+        }
+        .week-date {
+            color: #667eea;
+            font-weight: bold;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+        .week-tasks {
+            flex: 1;
+        }
+        .week-mvp { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
+        .week-nice { background: linear-gradient(135deg, #f3e5f5, #e1bee7); }
+        .week-deliver { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); }
+        .week-test { background: linear-gradient(135deg, #fff3e0, #ffe0b2); }
+        .week-video { background: linear-gradient(135deg, #e3f2fd, #bbdefb); }
+
+        .legend {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 12px 0;
+            justify-content: center;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.8em;
+        }
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+
+        .deliverable-section {
+            margin-bottom: 20px;
+        }
+        .deliverable-section h3 {
+            margin: 10px 0 5px 0;
+            font-size: 1.1em;
+        }
+
+        /* Compact table for deliverables */
+        .plan-table.compact td,
+        .plan-table.compact th {
+            padding: 8px 12px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="top-navigation">
+            <a href="../../index.html" class="nav-link">&#127968; Inicio</a>
+            <a href="index.html" class="nav-link">&#128218; Sesion 06</a>
+        </div>
+        <div class="slide-number" id="slideNumber">1 / 12</div>
+
+        <!-- Slide 1: Titulo -->
+        <div class="slide active">
+            <h1>&#128197; Plan de Proyecto</h1>
+            <div style="text-align: center; margin-top: 20px;">
+                <div style="font-size: 4em;">&#128222;&#128149;&#128116;</div>
+                <h2 style="border: none; color: #e91e63; font-size: 2.2em; margin-top: 20px;">SonRISAS</h2>
+                <p style="font-size: 1.1em; color: #667eea; margin-top: 10px;">
+                    Recordatorios de Interaccion Social y Actividades
+                </p>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <p style="font-size: 1.3em; margin-top: 20px;">Technovation Girls - Beginner Division</p>
+                <p style="font-size: 1em; color: #999; margin-top: 10px;">Sesion 6 - Febrero 2026</p>
+            </div>
+            <div class="question-box" style="margin-top: 30px; text-align: center;">
+                <strong>Semanas restantes: 6</strong> (sesiones 7 a 12)<br>
+                Hoy planificamos el trabajo hasta la entrega final (20 abril)
+            </div>
+        </div>
+
+        <!-- Slide 2: Que tenemos que entregar -->
+        <div class="slide">
+            <h1>&#127919; Que Tenemos que Entregar</h1>
+
+            <div class="info-box">
+                <h2 style="border: none; color: #e91e63;">&#128241; La App SonRISAS</h2>
+                <div class="step-item">
+                    <div class="icon-circle" style="background: #e91e63;">&#9733;</div>
+                    <span><strong>MVP - Agenda de Contactos</strong> con recordatorios, llamar y SMS</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle" style="background: #9c27b0;">+</div>
+                    <span>Generador de Actividades, Registro Emocional, Frases Motivadoras</span>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 15px;">
+                <h2 style="border: none; color: #667eea;">&#128230; Entregables Technovation</h2>
+                <div class="step-item">
+                    <div class="icon-circle">&#128221;</div>
+                    <span>Planteamiento del problema</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">&#128100;</div>
+                    <span>Nombre del equipo y descripcion del proyecto</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">&#127916;</div>
+                    <span>Video de lanzamiento (pitch) + Video tecnico</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">&#128247;</div>
+                    <span>Imagenes del viaje de aprendizaje (2-6 fotos)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Timeline visual -->
+        <div class="slide">
+            <h1>&#128197; Calendario General</h1>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #f8bbd0;"></div> App (todas las funcionalidades en paralelo)
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ffe0b2;"></div> Testing
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #bbdefb;"></div> Videos
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #c8e6c9;"></div> Entrega
+                </div>
+            </div>
+
+            <div class="timeline-week week-mvp">
+                <div class="week-number">7</div>
+                <div class="week-date">20 feb</div>
+                <div class="week-tasks">Tutorial TinyDB + Logo rapido + Disenar TODAS las pantallas en papel + Investigar contenido</div>
+            </div>
+            <div class="timeline-week week-mvp">
+                <div class="week-number">8</div>
+                <div class="week-date">27 feb</div>
+                <div class="week-tasks">Crear TODAS las pantallas en App Inventor + Empezar a programar</div>
+            </div>
+            <div class="timeline-week week-mvp">
+                <div class="week-number">9</div>
+                <div class="week-date">6 mar</div>
+                <div class="week-tasks">Programar funcionalidades + Escribir guiones de videos</div>
+            </div>
+            <div class="timeline-week week-test">
+                <div class="week-number">10</div>
+                <div class="week-date">13 mar</div>
+                <div class="week-tasks">Pulir app + Pruebas con equipo + <strong>Grabar videos (v1)</strong></div>
+            </div>
+            <div class="timeline-week week-video">
+                <div class="week-number">11</div>
+                <div class="week-date">20 mar</div>
+                <div class="week-tasks">Editar videos &#8594; <strong>V1 LISTA antes de Semana Santa</strong></div>
+            </div>
+            <div class="timeline-week" style="background: linear-gradient(135deg, #eceff1, #cfd8dc); opacity: 0.7;">
+                <div class="week-number" style="background: #78909c;">&#9728;</div>
+                <div class="week-date" style="color: #78909c;">27 mar - 3 abr</div>
+                <div class="week-tasks" style="color: #78909c;"><strong>SEMANA SANTA</strong> - Vacaciones</div>
+            </div>
+            <div class="timeline-week week-test">
+                <div class="week-number">12</div>
+                <div class="week-date">10 abr</div>
+                <div class="week-tasks">Testing con usuarios + Corregir errores + Mejorar videos (version final)</div>
+            </div>
+            <div class="timeline-week week-deliver">
+                <div class="week-number" style="background: #2e7d32;">&#10003;</div>
+                <div class="week-date">20 abr</div>
+                <div class="week-tasks">Ultimos ajustes + Imagenes + <strong>ENVIO FINAL</strong></div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Diseno + Pantalla de Inicio (fusionados) -->
+        <div class="slide">
+            <div class="feature-header">
+                <h2>&#127912; <span class="feature-name">Diseno Visual + Pantalla de Inicio</span></h2>
+            </div>
+
+            <table class="plan-table">
+                <thead>
+                    <tr>
+                        <th>Tarea</th>
+                        <th>Quien</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="task-name">1. Elegir colores y tipografia</span><br>2-3 colores calidos, alto contraste, letra grande para personas mayores</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">20 feb</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">2. Boceto logo + pantalla inicio en papel</span><br>Dibujo rapido del logo (sonrisa) + pantalla con botones grandes para cada seccion</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">20 feb</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">3. Crear logo digital + pantalla en App Inventor</span><br>Logo en Canva + pantalla inicio con botones de navegacion</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">27 feb</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">4. Programar navegacion entre pantallas</span><br>Cada boton abre la pantalla (Screen) correspondiente</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">27 feb</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="resources-box">
+                <strong>Recursos:</strong> Canva gratuito, tutorial App Inventor multiples pantallas (Screen)
+            </div>
+            <div class="blockers-box">
+                <strong>Bloqueos:</strong> Ninguno
+            </div>
+        </div>
+
+        <!-- Slide 5: Funcionalidad - Agenda de Contactos (MVP) -->
+        <div class="slide">
+            <div class="feature-header">
+                <h2>&#128214; <span class="feature-name">Agenda de Contactos Cercanos</span>
+                <span class="mvp-badge">MVP</span></h2>
+            </div>
+
+            <table class="plan-table">
+                <thead>
+                    <tr>
+                        <th>Tarea</th>
+                        <th>Quien</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="task-name">1. Tutorial TinyDB + disenar pantalla en papel</span><br>Aprender a guardar/cargar datos. Boceto: formulario + lista de contactos</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">20 feb</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">2. Crear pantalla en App Inventor</span><br>TextBox para nombre/telefono, boton guardar, ListView para contactos</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">27 feb</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">3. Programar guardar y mostrar contactos</span><br>Guardar en TinyDB, cargar lista al abrir, ver cada contacto</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">27 feb</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">4. Programar boton Llamar y SMS</span><br>Componentes PhoneCall y Texting: boton directo para llamar o enviar mensaje</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">6 mar</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">5. Programar recordatorios</span><br>Clock + Notifier: avisar "Hace X dias que no contactas a [nombre]"</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">6 mar</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">6. Pruebas con usuarios + solucionar problemas</span><br>Probar con personas mayores. Botones grandes y legibles?</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">13 mar</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="resources-box">
+                <strong>Recursos:</strong> Tutorial TinyDB, tutorial PhoneCall/Texting, personas mayores para probar
+            </div>
+            <div class="blockers-box">
+                <strong>Bloqueos:</strong> Necesitan aprender TinyDB (tarea 1). Encontrar personas mayores para pruebas.
+            </div>
+        </div>
+
+        <!-- Slide 6: Funcionalidad - Generador de Actividades -->
+        <div class="slide">
+            <div class="feature-header">
+                <h2>&#127922; <span class="feature-name">Generador de Actividades Compartidas</span></h2>
+            </div>
+
+            <table class="plan-table">
+                <thead>
+                    <tr>
+                        <th>Tarea</th>
+                        <th>Quien</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="task-name">1. Crear lista de actividades</span><br>Pensar 30-40 ideas: manualidades, cocinar juntos, juegos, caminar...</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">20 feb</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">2. Disenar pantalla en App Inventor</span><br>Boton "Sugerencia aleatoria", ListPicker para categoria</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">27 feb</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">3. Programar sugerencia aleatoria</span><br>Elegir actividad al azar de la lista (bloque "pick a random item")</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">6 mar</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">4. Programar favoritas</span><br>Guardar actividades favoritas en TinyDB</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">6 mar</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">5. Pruebas y solucionar problemas</span></td>
+                        <td class="who-col">Equipo</td>
+                        <td class="date-col">13 mar</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="resources-box">
+                <strong>Recursos:</strong> Lista de actividades (investigacion previa), TinyDB
+            </div>
+            <div class="blockers-box">
+                <strong>Bloqueos:</strong> Ninguno - se desarrolla en paralelo con las demas funcionalidades
+            </div>
+        </div>
+
+        <!-- Slide 7: Funcionalidad - Registro Emocional -->
+        <div class="slide">
+            <div class="feature-header">
+                <h2>&#128522; <span class="feature-name">Registro Emocional Simple</span></h2>
+            </div>
+
+            <table class="plan-table">
+                <thead>
+                    <tr>
+                        <th>Tarea</th>
+                        <th>Quien</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="task-name">1. Disenar las 3 caritas</span><br>Crear o buscar imagenes grandes y claras: &#128522; &#128528; &#128546;</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">20 feb</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">2. Crear pantalla en App Inventor</span><br>3 botones con las caritas + espacio para historial reciente</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">27 feb</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">3. Programar guardar emocion diaria</span><br>Al tocar una carita, guardar en TinyDB con la fecha del dia</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">6 mar</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">4. Programar logica de alerta</span><br>Si 3+ dias tristes &#8594; Notifier sugiere contactar a alguien</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">6 mar</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">5. Pruebas y solucionar problemas</span></td>
+                        <td class="who-col">Equipo</td>
+                        <td class="date-col">13 mar</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="resources-box">
+                <strong>Recursos:</strong> Imagenes de caritas (dibujar o buscar sin copyright), TinyDB
+            </div>
+            <div class="blockers-box">
+                <strong>Bloqueos:</strong> Ninguno - se desarrolla en paralelo con las demas funcionalidades
+            </div>
+        </div>
+
+        <!-- Slide 8: Funcionalidad - Frases Motivadoras -->
+        <div class="slide">
+            <div class="feature-header">
+                <h2>&#128172; <span class="feature-name">Frases Motivadoras</span></h2>
+            </div>
+
+            <table class="plan-table">
+                <thead>
+                    <tr>
+                        <th>Tarea</th>
+                        <th>Quien</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="task-name">1. Recopilar frases</span><br>Buscar 20-30 frases motivadoras sobre amistad, familia y compania</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">20 feb</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">2. Disenar pantalla en App Inventor</span><br>Espacio grande para la frase, boton "Nueva frase", boton "Compartir por SMS"</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">27 feb</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">3. Programar frase aleatoria</span><br>Mostrar una frase al azar al pulsar el boton (bloque "pick a random item")</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">6 mar</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">4. Programar compartir por SMS</span><br>Componente Texting: enviar la frase a un contacto elegido</td>
+                        <td class="who-col">___________</td>
+                        <td class="date-col">6 mar</td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">5. Pruebas y solucionar problemas</span></td>
+                        <td class="who-col">Equipo</td>
+                        <td class="date-col">13 mar</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="resources-box">
+                <strong>Recursos:</strong> Investigacion de frases, componente Texting
+            </div>
+            <div class="blockers-box">
+                <strong>Bloqueos:</strong> Ninguno - se desarrolla en paralelo con las demas funcionalidades
+            </div>
+        </div>
+
+        <!-- Slide 9: Entregables - Problema + Nombre -->
+        <div class="slide">
+            <h1>&#128221; Entregables Technovation (1/2)</h1>
+
+            <div class="deliverable-section">
+                <div class="feature-header">
+                    <h2 style="font-size: 1.1em;">Planteamiento del Problema</h2>
+                </div>
+                <table class="plan-table compact">
+                    <thead>
+                        <tr><th>Tarea</th><th>Quien</th><th>Fecha</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="task-name">1. Escribir borrador</span></td>
+                            <td class="who-col">___________</td>
+                            <td class="date-col">20 feb</td>
+                        </tr>
+                        <tr>
+                            <td><span class="task-name">2. Aprobacion del equipo</span></td>
+                            <td class="who-col">Equipo</td>
+                            <td class="date-col">27 feb</td>
+                        </tr>
+                        <tr>
+                            <td><span class="task-name">3. Enviar a Technovation</span></td>
+                            <td class="who-col">___________</td>
+                            <td class="date-col">6 mar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="deliverable-section">
+                <div class="feature-header">
+                    <h2 style="font-size: 1.1em;">Nombre del Equipo y Descripcion del Proyecto</h2>
+                </div>
+                <table class="plan-table compact">
+                    <thead>
+                        <tr><th>Tarea</th><th>Quien</th><th>Fecha</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="task-name">1. Escribir borrador</span></td>
+                            <td class="who-col">___________</td>
+                            <td class="date-col">20 feb</td>
+                        </tr>
+                        <tr>
+                            <td><span class="task-name">2. Aprobacion del equipo</span></td>
+                            <td class="who-col">Equipo</td>
+                            <td class="date-col">27 feb</td>
+                        </tr>
+                        <tr>
+                            <td><span class="task-name">3. Enviar a Technovation</span></td>
+                            <td class="who-col">___________</td>
+                            <td class="date-col">6 mar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="resources-box">
+                <strong>Recursos:</strong> Documentacion del brainstorming, descripcion de SonRISAS
+            </div>
+        </div>
+
+        <!-- Slide 10: Entregables - Videos -->
+        <div class="slide">
+            <h1>&#127916; Entregables Technovation (2/2)</h1>
+
+            <div class="question-box" style="text-align: center; margin-bottom: 15px;">
+                <strong>&#127919; Meta: Primera version de videos ANTES de Semana Santa</strong>
+            </div>
+
+            <div class="deliverable-section">
+                <div class="feature-header">
+                    <h2 style="font-size: 1.1em;">Video de Lanzamiento (Pitch)</h2>
+                </div>
+                <table class="plan-table compact">
+                    <thead>
+                        <tr><th>Tarea</th><th>Quien</th><th>Fecha</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="task-name">1. Escribir el guion</span></td>
+                            <td class="who-col">___________</td>
+                            <td class="date-col">6 mar</td>
+                        </tr>
+                        <tr>
+                            <td><span class="task-name">2. Grabar video (v1)</span></td>
+                            <td class="who-col">Equipo</td>
+                            <td class="date-col">13 mar</td>
+                        </tr>
+                        <tr>
+                            <td><span class="task-name">3. Editar video (v1)</span></td>
+                            <td class="who-col">___________</td>
+                            <td class="date-col">20 mar</td>
+                        </tr>
+                        <tr>
+                            <td><span class="task-name">4. Mejorar video (version final)</span></td>
+                            <td class="who-col">___________</td>
+                            <td class="date-col">10 abr</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="deliverable-section">
+                <div class="feature-header">
+                    <h2 style="font-size: 1.1em;">Video Tecnico</h2>
+                </div>
+                <table class="plan-table compact">
+                    <thead>
+                        <tr><th>Tarea</th><th>Quien</th><th>Fecha</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="task-name">1. Escribir esquema</span></td>
+                            <td class="who-col">___________</td>
+                            <td class="date-col">6 mar</td>
+                        </tr>
+                        <tr>
+                            <td><span class="task-name">2. Grabar video (v1)</span></td>
+                            <td class="who-col">Equipo</td>
+                            <td class="date-col">13 mar</td>
+                        </tr>
+                        <tr>
+                            <td><span class="task-name">3. Editar video (v1)</span></td>
+                            <td class="who-col">___________</td>
+                            <td class="date-col">20 mar</td>
+                        </tr>
+                        <tr>
+                            <td><span class="task-name">4. Mejorar video (version final)</span></td>
+                            <td class="who-col">___________</td>
+                            <td class="date-col">10 abr</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="deliverable-section">
+                <div class="feature-header">
+                    <h2 style="font-size: 1.1em;">Imagenes del Viaje de Aprendizaje (2-6 fotos)</h2>
+                </div>
+                <table class="plan-table compact">
+                    <thead>
+                        <tr><th>Tarea</th><th>Quien</th><th>Fecha</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="task-name">1. Hacer fotos durante el proyecto</span></td>
+                            <td class="who-col">Equipo</td>
+                            <td class="date-col">Continuo</td>
+                        </tr>
+                        <tr>
+                            <td><span class="task-name">2. Seleccionar y subir a Technovation</span></td>
+                            <td class="who-col">___________</td>
+                            <td class="date-col">20 abr</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slide 11: Trabajo en paralelo -->
+        <div class="slide">
+            <h1>&#9889; Trabajo en Paralelo</h1>
+
+            <div class="info-box">
+                <p style="text-align: center; font-size: 1.1em; margin-bottom: 15px;">
+                    TODAS las funcionalidades se desarrollan <strong>a la vez</strong>. Cada persona o pareja trabaja en una funcionalidad diferente:
+                </p>
+
+                <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 15px 0;">
+                    <div style="background: #fce4ec; padding: 10px 15px; border-radius: 10px; text-align: center; flex: 1; min-width: 120px;">
+                        <div style="font-size: 1.5em;">&#128214;</div>
+                        <strong>Agenda</strong><br>
+                        <span class="mvp-badge" style="margin: 5px 0; display: inline-block;">MVP</span>
+                    </div>
+                    <div style="background: #f3e5f5; padding: 10px 15px; border-radius: 10px; text-align: center; flex: 1; min-width: 120px;">
+                        <div style="font-size: 1.5em;">&#127922;</div>
+                        <strong>Actividades</strong>
+                    </div>
+                    <div style="background: #f3e5f5; padding: 10px 15px; border-radius: 10px; text-align: center; flex: 1; min-width: 120px;">
+                        <div style="font-size: 1.5em;">&#128522;</div>
+                        <strong>Emociones</strong>
+                    </div>
+                    <div style="background: #f3e5f5; padding: 10px 15px; border-radius: 10px; text-align: center; flex: 1; min-width: 120px;">
+                        <div style="font-size: 1.5em;">&#128172;</div>
+                        <strong>Frases</strong>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin: 15px 0;">
+                    <div style="font-size: 1.3em;">&#8595; Todas siguen el mismo ritmo &#8595;</div>
+                </div>
+
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+                    <div style="background: #e3f2fd; padding: 8px 12px; border-radius: 8px; font-size: 0.9em;">
+                        <strong>20 feb:</strong> Investigar + papel
+                    </div>
+                    <div style="font-size: 1.2em; display: flex; align-items: center;">&#8594;</div>
+                    <div style="background: #e3f2fd; padding: 8px 12px; border-radius: 8px; font-size: 0.9em;">
+                        <strong>27 feb:</strong> App Inventor
+                    </div>
+                    <div style="font-size: 1.2em; display: flex; align-items: center;">&#8594;</div>
+                    <div style="background: #e3f2fd; padding: 8px 12px; border-radius: 8px; font-size: 0.9em;">
+                        <strong>6 mar:</strong> Programar
+                    </div>
+                    <div style="font-size: 1.2em; display: flex; align-items: center;">&#8594;</div>
+                    <div style="background: #e3f2fd; padding: 8px 12px; border-radius: 8px; font-size: 0.9em;">
+                        <strong>13 mar:</strong> Probar
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-card" style="margin-top: 15px;">
+                <strong>Ventaja:</strong> Si una funcionalidad se complica, las demas siguen avanzando. Lo mas importante es que la Agenda (MVP) funcione bien.
+            </div>
+        </div>
+
+        <!-- Slide 12: Resumen y actividad -->
+        <div class="slide">
+            <h1>&#127919; Ahora os Toca a Vosotras</h1>
+
+            <div class="repeat-box" style="margin-bottom: 20px;">
+                <h2 style="color: white; border: none;">Actividad: Rellenar el Plan</h2>
+                <p style="font-size: 1.1em; margin-top: 10px;">
+                    Decidid quien trabaja en cada tarea
+                </p>
+            </div>
+
+            <div class="info-box">
+                <div class="step-item">
+                    <div class="icon-circle">1</div>
+                    <span>Cada persona o pareja <strong>elige una funcionalidad</strong> como responsable principal</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">2</div>
+                    <span>Rellenad la columna <strong>"Quien"</strong> de cada tabla</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">3</div>
+                    <span>Pensad: Quien sabe dibujar? Quien prefiere programar? Quien quiere investigar?</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">4</div>
+                    <span>Repartid tambien los <strong>entregables</strong> (problema, videos, fotos)</span>
+                </div>
+            </div>
+
+            <div class="question-box" style="text-align: center; margin-top: 20px;">
+                <strong>Recordad:</strong> Todas las funcionalidades avanzan en paralelo.<br>
+                Lo mas importante es tener el MVP (Agenda) + videos v1 antes de Semana Santa.
+            </div>
+
+            <div class="motivational-quote">
+                "Un buen plan hoy es mejor que un plan perfecto manana"
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button id="prevBtn" onclick="changeSlide(-1)">&larr; Anterior</button>
+            <button id="nextBtn" onclick="changeSlide(1)">Siguiente &rarr;</button>
+        </div>
+    </div>
+
+    <script src="../../js/presentation.js"></script>
+    <script>
+        initPresentation(12);
+    </script>
+</body>
+</html>
