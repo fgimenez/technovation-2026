@@ -55,6 +55,13 @@ const slides = [
         description: "Aprende qué es un prototipo, por qué son importantes, y cómo crear prototipos en papel antes de programar.",
         icon: "✏️",
         path: "slides/05/prototipos.html"
+    },
+    {
+        session: "Sesión 06",
+        title: "Conjuntos de Datos",
+        description: "Aprende qué es un conjunto de datos saludable, cómo evitar el sesgo, y cómo recopilar datos para tu proyecto.",
+        icon: "📊",
+        path: "slides/06/conjuntos-de-datos.html"
     }
 ];
 

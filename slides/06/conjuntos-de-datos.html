@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conjuntos de Datos - Technovation Girls</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/presentation.css">
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="top-navigation">
+            <a href="../../index.html" class="nav-link">🏠 Inicio</a>
+            <a href="index.html" class="nav-link">📚 Sesión 06</a>
+        </div>
+        <div class="slide-number" id="slideNumber">1 / 10</div>
+
+        <!-- Slide 1: Título -->
+        <div class="slide active">
+            <h1>📊 Conjuntos de Datos</h1>
+            <div style="text-align: center; margin-top: 30px;">
+                <div class="emoji">🗂️</div>
+                <p style="font-size: 1.2em; margin-top: 20px; color: #667eea;">
+                    Datos saludables para predicciones saludables
+                </p>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <h2 style="border: none; color: #764ba2;">Technovation Girls</h2>
+                <p style="font-size: 1.3em; margin-top: 20px;">Beginner Division - Sesión 6</p>
+            </div>
+            <div class="question-box" style="margin-top: 50px;">
+                <strong>En esta sesión aprenderás:</strong> Qué es un conjunto de datos, cómo debe ser un conjunto de datos "saludable", y cómo recopilar datos para tu proyecto
+            </div>
+        </div>
+
+        <!-- Slide 2: Las 3 partes de la IA -->
+        <div class="slide">
+            <h1>Las 3 Partes de la IA 🧠</h1>
+
+            <div style="text-align: center; margin: 20px 0;">
+                <p style="font-size: 1.1em; color: #555;">La Inteligencia Artificial aprende siguiendo estos 3 pasos:</p>
+            </div>
+
+            <div class="info-box">
+                <div class="step-item">
+                    <div class="icon-circle">1</div>
+                    <span><strong>CONJUNTO DE DATOS</strong> — Una gran colección de datos (fotos, textos, sonidos...)</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">2</div>
+                    <span><strong>ENCONTRAR PATRONES</strong> — El modelo aprende a reconocer patrones en los datos</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">3</div>
+                    <span><strong>HACER PREDICCIONES</strong> — El modelo usa los patrones para predecir o clasificar</span>
+                </div>
+            </div>
+
+            <div class="repeat-box" style="margin-top: 30px;">
+                <h2 style="color: white; border: none;">Ejemplo: Perros vs Gatos 🐶🐱</h2>
+                <p style="font-size: 1.1em; margin-top: 15px;">
+                    1. Le damos <span style="color: #ffd700;">muchas fotos</span> de perros y gatos
+                </p>
+                <p style="font-size: 1.1em; margin-top: 5px;">
+                    2. El modelo aprende las <span style="color: #ffd700;">diferencias</span> entre ellos
+                </p>
+                <p style="font-size: 1.1em; margin-top: 5px;">
+                    3. Al ver una foto nueva, <span style="color: #ffd700;">predice</span> si es perro o gato
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 3: ¿Qué es un conjunto de datos? -->
+        <div class="slide">
+            <h1>¿Qué es un Conjunto de Datos? 🗂️</h1>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <div style="font-size: 4em;">📷📝🔊🤸</div>
+            </div>
+
+            <div class="repeat-box">
+                <h2 style="color: white; border: none;">Un conjunto de datos es...</h2>
+                <p style="font-size: 1.3em; margin-top: 15px;">
+                    Una <span style="color: #ffd700;">gran colección de datos</span> que se usa para entrenar un modelo de IA
+                </p>
+            </div>
+
+            <div class="info-box" style="margin-top: 30px;">
+                <h3 style="border: none; color: #667eea;">Tipos de datos:</h3>
+                <div class="step-item">
+                    <div class="icon-circle">📷</div>
+                    <span><strong>Imágenes</strong> — Fotos, dibujos, capturas de pantalla</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">📝</div>
+                    <span><strong>Texto</strong> — Palabras, frases, párrafos</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">🔊</div>
+                    <span><strong>Sonidos</strong> — Grabaciones de audio, música, voces</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">🤸</div>
+                    <span><strong>Poses</strong> — Posiciones del cuerpo, gestos</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Datos saludables -->
+        <div class="slide">
+            <h1>¿Qué son Datos "Saludables"? 💚</h1>
+
+            <div style="text-align: center; margin: 15px 0;">
+                <p style="font-size: 1.1em; color: #555;">Un conjunto de datos saludable lleva a predicciones correctas</p>
+            </div>
+
+            <div class="info-box">
+                <div class="step-item">
+                    <div class="icon-circle">📦</div>
+                    <span><strong>Muchos datos</strong> — Al menos 50 ejemplos por cada categoría</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">✅</div>
+                    <span><strong>Datos correctos</strong> — Bien etiquetados y sin errores</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">🎯</div>
+                    <span><strong>Relacionados con tu problema</strong> — Que sirvan para lo que quieres resolver</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">🌈</div>
+                    <span><strong>Variedad</strong> — Muchos ejemplos diferentes entre sí</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">🔑</div>
+                    <span><strong>Tipo correcto</strong> — El formato adecuado (fotos, texto, sonido...)</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">🤝</div>
+                    <span><strong>Con permiso</strong> — Tienes permiso para usar esos datos</span>
+                </div>
+            </div>
+
+            <div class="motivational-quote">
+                "¡Datos saludables = Predicciones saludables!"
+            </div>
+        </div>
+
+        <!-- Slide 5: Datos NO saludables -->
+        <div class="slide">
+            <h1>Datos NO Saludables 🚨</h1>
+
+            <div style="text-align: center; margin: 15px 0;">
+                <p style="font-size: 1.1em; color: #555;">¿Qué pasa cuando los datos NO son saludables?</p>
+            </div>
+
+            <div class="info-box">
+                <h3 style="border: none; color: #dc3545;">❌ Problemas comunes:</h3>
+                <div class="step-item">
+                    <div class="icon-circle" style="background: linear-gradient(135deg, #dc3545, #c82333);">1</div>
+                    <span><strong>Pocos datos</strong> — El modelo no tiene suficientes ejemplos para aprender</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle" style="background: linear-gradient(135deg, #dc3545, #c82333);">2</div>
+                    <span><strong>Datos desequilibrados</strong> — Muchos ejemplos de una categoría y pocos de otra</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle" style="background: linear-gradient(135deg, #dc3545, #c82333);">3</div>
+                    <span><strong>Poca variedad</strong> — Todos los ejemplos son muy parecidos</span>
+                </div>
+            </div>
+
+            <div class="repeat-box" style="margin-top: 30px;">
+                <h2 style="color: white; border: none;">Ejemplo de sesgo ⚠️</h2>
+                <p style="font-size: 1.1em; margin-top: 15px;">
+                    Si entrenas un modelo para detectar mascarillas solo con fotos de <span style="color: #ffd700;">hombres con mascarillas azules</span>...
+                </p>
+                <p style="font-size: 1.1em; margin-top: 10px;">
+                    ¿Qué pasa cuando una mujer con mascarilla morada lo usa? <span style="color: #ffd700;">¡No funcionará bien!</span>
+                </p>
+            </div>
+
+            <div class="tip-card" style="margin-top: 20px;">
+                Debes tener <strong>aproximadamente la misma cantidad</strong> de ejemplos para cada categoría para evitar el sesgo
+            </div>
+        </div>
+
+        <!-- Slide 6: La cadena de datos saludables -->
+        <div class="slide">
+            <h1>La Cadena de Datos Saludables 🔗</h1>
+
+            <div style="text-align: center; margin: 40px 0;">
+                <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 15px; text-align: center; min-width: 140px;">
+                        <div style="font-size: 2em;">🗂️</div>
+                        <p style="margin-top: 10px; font-weight: bold;">Datos saludables</p>
+                    </div>
+                    <div style="font-size: 2em; color: #667eea;">➡️</div>
+                    <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 15px; text-align: center; min-width: 140px;">
+                        <div style="font-size: 2em;">🔍</div>
+                        <p style="margin-top: 10px; font-weight: bold;">Patrones correctos</p>
+                    </div>
+                    <div style="font-size: 2em; color: #667eea;">➡️</div>
+                    <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 15px; text-align: center; min-width: 140px;">
+                        <div style="font-size: 2em;">🎯</div>
+                        <p style="margin-top: 10px; font-weight: bold;">Predicciones correctas</p>
+                    </div>
+                    <div style="font-size: 2em; color: #667eea;">➡️</div>
+                    <div style="background: linear-gradient(135deg, #28a745, #20c997); color: white; padding: 20px; border-radius: 15px; text-align: center; min-width: 140px;">
+                        <div style="font-size: 2em;">✅</div>
+                        <p style="margin-top: 10px; font-weight: bold;">Acciones correctas</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="repeat-box" style="margin-top: 30px;">
+                <h2 style="color: white; border: none;">Recuerda</h2>
+                <p style="font-size: 1.2em; margin-top: 15px;">
+                    ¡Todo empieza con unos <span style="color: #ffd700;">buenos datos</span>!
+                </p>
+                <p style="font-size: 1.1em; margin-top: 10px;">
+                    Si los datos son malos, todo lo demás también lo será
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Cómo recopilar datos -->
+        <div class="slide">
+            <h1>3 Formas de Recopilar Datos 📥</h1>
+
+            <div class="info-box">
+                <h3 style="border: none; color: #667eea;">1. Recopilar tus propios datos 📸</h3>
+                <p style="margin-left: 15px;">
+                    Toma fotos, graba sonidos o recoge datos directamente de tu comunidad.
+                </p>
+                <p style="margin-left: 15px; color: #dc3545; margin-top: 5px;">
+                    <strong>¡Asegúrate de tener permiso!</strong>
+                </p>
+            </div>
+
+            <div class="info-box" style="margin-top: 20px;">
+                <h3 style="border: none; color: #667eea;">2. Usar conjuntos de datos públicos 🌐</h3>
+                <p style="margin-left: 15px;">
+                    Hay muchos datos disponibles en internet que puedes usar libremente.
+                </p>
+                <p style="margin-left: 15px; margin-top: 5px;">
+                    <strong>Sitios útiles:</strong> Kaggle, Google Dataset Search
+                </p>
+            </div>
+
+            <div class="info-box" style="margin-top: 20px;">
+                <h3 style="border: none; color: #667eea;">3. Usar sensores y hardware 🔌</h3>
+                <p style="margin-left: 15px;">
+                    Si necesitas datos en tiempo real, puedes usar sensores que recopilen datos automáticamente.
+                </p>
+            </div>
+
+            <div class="tip-card" style="margin-top: 20px;">
+                Para vuestro proyecto en <strong>App Inventor</strong>, lo más probable es que uséis las opciones 1 y 2
+            </div>
+        </div>
+
+        <!-- Slide 8: Datos públicos -->
+        <div class="slide">
+            <h1>Datos Públicos 🌐</h1>
+
+            <div style="text-align: center; margin: 15px 0;">
+                <p style="font-size: 1.1em; color: #555;">Hay organizaciones que comparten datos para que cualquiera pueda usarlos</p>
+            </div>
+
+            <div class="info-box">
+                <h3 style="border: none; color: #667eea;">Kaggle 📊</h3>
+                <div style="margin-left: 15px;">
+                    <p>Una de las plataformas más grandes de conjuntos de datos del mundo.</p>
+                    <p style="margin-top: 5px;"><strong>Web:</strong> <a href="https://kaggle.com/datasets" target="_blank" style="color: #667eea;">kaggle.com/datasets</a></p>
+                    <p style="margin-top: 5px;">Miles de conjuntos de datos gratuitos sobre todo tipo de temas.</p>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 20px;">
+                <h3 style="border: none; color: #667eea;">Google Dataset Search 🔍</h3>
+                <div style="margin-left: 15px;">
+                    <p>Un buscador de Google específico para encontrar conjuntos de datos.</p>
+                    <p style="margin-top: 5px;"><strong>Web:</strong> <a href="https://datasetsearch.research.google.com/" target="_blank" style="color: #667eea;">datasetsearch.research.google.com</a></p>
+                </div>
+            </div>
+
+            <div class="repeat-box" style="margin-top: 30px;">
+                <h2 style="color: white; border: none;">Consejo 💡</h2>
+                <p style="font-size: 1.1em; margin-top: 15px;">
+                    Si necesitas muchos datos rápidamente, los <span style="color: #ffd700;">datos públicos</span> son tu mejor opción
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 9: Ética y permisos -->
+        <div class="slide">
+            <h1>Ética y Permisos 🤝</h1>
+
+            <div style="text-align: center; margin: 15px 0;">
+                <p style="font-size: 1.1em; color: #555;">Recopilar datos conlleva una responsabilidad</p>
+            </div>
+
+            <div class="info-box">
+                <div class="step-item">
+                    <div class="icon-circle">🔒</div>
+                    <span><strong>Pide siempre permiso</strong> antes de recopilar datos de otras personas</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">⚖️</div>
+                    <span><strong>Evita el sesgo</strong> — Incluye ejemplos variados y equilibrados</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">🌍</div>
+                    <span><strong>Piensa en el impacto</strong> — ¿Cómo afectan tus datos a diferentes personas?</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">📋</div>
+                    <span><strong>Documenta tus fuentes</strong> — Apunta de dónde sacaste los datos</span>
+                </div>
+            </div>
+
+            <div class="repeat-box" style="margin-top: 30px;">
+                <h2 style="color: white; border: none;">Para SonRISAS 💜</h2>
+                <p style="font-size: 1.1em; margin-top: 15px;">
+                    Si recogéis datos de personas mayores, <span style="color: #ffd700;">pedid permiso</span> y tratad la información con cuidado y respeto
+                </p>
+            </div>
+
+            <div class="tip-card" style="margin-top: 20px;">
+                <strong>Recordad:</strong> En la rúbrica de Technovation se evalúan las consideraciones éticas de vuestro proyecto
+            </div>
+        </div>
+
+        <!-- Slide 10: Resumen -->
+        <div class="slide">
+            <h1>¡Ya Sabéis sobre Datos! 🌟</h1>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <div style="font-size: 5em;">🎉</div>
+            </div>
+
+            <div class="info-box">
+                <div class="step-item">
+                    <div class="icon-circle">✅</div>
+                    <span>La IA necesita <strong>datos, patrones y predicciones</strong></span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">✅</div>
+                    <span>Los datos deben ser <strong>saludables</strong>: muchos, variados, correctos y con permiso</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">✅</div>
+                    <span>Podéis <strong>recopilar datos propios</strong> o usar <strong>datos públicos</strong></span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">✅</div>
+                    <span>Siempre hay que ser <strong>éticos y responsables</strong> con los datos</span>
+                </div>
+            </div>
+
+            <div class="repeat-box" style="margin-top: 30px;">
+                <h2 style="color: white; border: none;">Siguiente Paso 🎯</h2>
+                <p style="font-size: 1.2em; margin-top: 15px;">
+                    Pensar qué datos podría necesitar <strong>SonRISAS</strong> y de dónde obtenerlos
+                </p>
+            </div>
+
+            <div class="question-box" style="text-align: center; margin-top: 30px;">
+                <strong>¿Preguntas? 🙋‍♀️</strong>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button id="prevBtn" onclick="changeSlide(-1)">← Anterior</button>
+            <button id="nextBtn" onclick="changeSlide(1)">Siguiente →</button>
+        </div>
+    </div>
+
+    <script src="../../js/presentation.js"></script>
+    <script>
+        initPresentation(10);
+    </script>
+</body>
+</html>
