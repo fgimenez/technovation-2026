@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicionales en App Inventor - Technovation Girls</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/presentation.css">
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="top-navigation">
+            <a href="../../index.html" class="nav-link">🏠 Inicio</a>
+            <a href="index.html" class="nav-link">📚 Sesión 06</a>
+        </div>
+        <div class="slide-number" id="slideNumber">1 / 10</div>
+
+        <!-- Slide 1: Título -->
+        <div class="slide active">
+            <h1>🔀 Condicionales en App Inventor</h1>
+            <div style="text-align: center; margin-top: 30px;">
+                <div class="emoji">🤔</div>
+                <p style="font-size: 1.2em; margin-top: 20px; color: #667eea;">
+                    Enseña a tu app a tomar decisiones
+                </p>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <h2 style="border: none; color: #764ba2;">Technovation Girls</h2>
+                <p style="font-size: 1.3em; margin-top: 20px;">Beginner Division - Sesión 6</p>
+            </div>
+            <div class="question-box" style="margin-top: 50px;">
+                <strong>En esta sesión aprenderás:</strong> Qué son las condiciones, cómo usar bloques condicionales en App Inventor, y cómo aplicarlos en SonRISAS
+            </div>
+        </div>
+
+        <!-- Slide 2: ¿Qué es una condición? -->
+        <div class="slide">
+            <h1>¿Qué es una Condición? 🌦️</h1>
+
+            <div style="text-align: center; margin: 20px 0;">
+                <p style="font-size: 1.1em; color: #555;">Una condición es una <strong>situación</strong> que puede ser <strong>verdadera</strong> o <strong>falsa</strong></p>
+            </div>
+
+            <div class="info-box">
+                <h3 style="border: none; color: #667eea;">Ejemplos de la vida real:</h3>
+                <div class="step-item">
+                    <div class="icon-circle">🌧️</div>
+                    <span>"Está lloviendo" → puede ser <strong style="color: #28a745;">verdadero</strong> o <strong style="color: #dc3545;">falso</strong></span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">🌡️</div>
+                    <span>"La temperatura es mayor de 22°C" → puede ser <strong style="color: #28a745;">verdadero</strong> o <strong style="color: #dc3545;">falso</strong></span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">📱</div>
+                    <span>"El móvil está sin batería" → puede ser <strong style="color: #28a745;">verdadero</strong> o <strong style="color: #dc3545;">falso</strong></span>
+                </div>
+            </div>
+
+            <div class="repeat-box" style="margin-top: 30px;">
+                <h2 style="color: white; border: none;">¡Tú ya usas condiciones!</h2>
+                <p style="font-size: 1.1em; margin-top: 15px;">
+                    Cada día tomas decisiones basadas en condiciones:
+                </p>
+                <p style="font-size: 1.1em; margin-top: 10px;">
+                    <span style="color: #ffd700;">Si</span> llueve, <span style="color: #ffd700;">entonces</span> cojo el paraguas ☂️
+                </p>
+                <p style="font-size: 1.1em; margin-top: 5px;">
+                    <span style="color: #ffd700;">Si</span> hace frío, <span style="color: #ffd700;">entonces</span> me pongo chaqueta 🧥
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 3: Si / Entonces -->
+        <div class="slide">
+            <h1>Si / Entonces (if / then) ➡️</h1>
+
+            <div style="text-align: center; margin: 15px 0;">
+                <p style="font-size: 1.1em; color: #555;">La forma más simple: <strong>una condición, una acción</strong></p>
+            </div>
+
+            <div style="background: #f0f4ff; border-radius: 15px; padding: 25px; margin: 20px 0; border-left: 5px solid #667eea;">
+                <p style="font-size: 1.3em; text-align: center;">
+                    <strong style="color: #667eea;">SI</strong> la condición es verdadera →
+                    <strong style="color: #28a745;">hacer algo</strong>
+                </p>
+                <p style="font-size: 1.1em; text-align: center; margin-top: 10px; color: #888;">
+                    Si es falsa → no pasa nada, se sigue adelante
+                </p>
+            </div>
+
+            <div class="info-box">
+                <h3 style="border: none; color: #667eea;">Ejemplos:</h3>
+                <div class="step-item">
+                    <div class="icon-circle">☂️</div>
+                    <span><strong>Si</strong> llueve, <strong>entonces</strong> cojo el paraguas</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">🧥</div>
+                    <span><strong>Si</strong> hace frío, <strong>entonces</strong> me pongo la chaqueta</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">🔌</div>
+                    <span><strong>Si</strong> el móvil no tiene batería, <strong>entonces</strong> lo cargo</span>
+                </div>
+            </div>
+
+            <div style="background: #fff3cd; border-radius: 15px; padding: 20px; margin-top: 20px; text-align: center; border: 2px solid #ffc107;">
+                <p style="font-size: 1.1em;">
+                    En App Inventor → bloque <strong style="color: #667eea;">if</strong> (en el cajón <strong>Control</strong>)
+                </p>
+                <p style="margin-top: 10px; font-size: 0.95em; color: #666;">
+                    La condición se conecta al hueco <strong>"if"</strong> y la acción al hueco <strong>"then"</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 4: Si / Entonces / Si no -->
+        <div class="slide">
+            <h1>Si / Entonces / Si no (if / else) 🔀</h1>
+
+            <div style="text-align: center; margin: 15px 0;">
+                <p style="font-size: 1.1em; color: #555;">Una condición, <strong>dos caminos posibles</strong></p>
+            </div>
+
+            <div style="background: #f0f4ff; border-radius: 15px; padding: 25px; margin: 20px 0; border-left: 5px solid #667eea;">
+                <p style="font-size: 1.2em; text-align: center;">
+                    <strong style="color: #667eea;">SI</strong> la condición es verdadera →
+                    <strong style="color: #28a745;">hacer esto</strong>
+                </p>
+                <p style="font-size: 1.2em; text-align: center; margin-top: 10px;">
+                    <strong style="color: #764ba2;">SI NO</strong> (es falsa) →
+                    <strong style="color: #dc3545;">hacer lo otro</strong>
+                </p>
+            </div>
+
+            <div class="info-box">
+                <h3 style="border: none; color: #667eea;">Ejemplos:</h3>
+                <div class="step-item">
+                    <div class="icon-circle">🌡️</div>
+                    <span><strong>Si</strong> hace más de 22°C, <strong>entonces</strong> abrir ventana. <strong>Si no</strong>, cerrarla.</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">🤒</div>
+                    <span><strong>Si</strong> estás enferma, <strong>entonces</strong> ir al médico. <strong>Si no</strong>, ir al cole.</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">👕</div>
+                    <span><strong>Si</strong> la ropa está sucia, <strong>entonces</strong> lavarla. <strong>Si no</strong>, guardarla.</span>
+                </div>
+            </div>
+
+            <div style="background: #fff3cd; border-radius: 15px; padding: 20px; margin-top: 20px; text-align: center; border: 2px solid #ffc107;">
+                <p style="font-size: 1.1em;">
+                    En App Inventor → bloque <strong style="color: #667eea;">if / else</strong>
+                </p>
+                <p style="margin-top: 10px; font-size: 0.95em; color: #666;">
+                    Siempre hay <strong>exactamente dos caminos</strong>: uno para verdadero y otro para falso
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Múltiples condiciones -->
+        <div class="slide">
+            <h1>Varias Condiciones (if / else if / else) 🔀🔀</h1>
+
+            <div style="text-align: center; margin: 15px 0;">
+                <p style="font-size: 1.1em; color: #555;">A veces necesitas comprobar <strong>más de una condición</strong></p>
+            </div>
+
+            <div style="background: #f0f4ff; border-radius: 15px; padding: 25px; margin: 20px 0; border-left: 5px solid #667eea;">
+                <p style="font-size: 1.1em;">
+                    <strong style="color: #667eea;">SI</strong> la 1a condición es verdadera → <strong style="color: #28a745;">hacer A</strong>
+                </p>
+                <p style="font-size: 1.1em; margin-top: 8px;">
+                    <strong style="color: #764ba2;">SI NO, SI</strong> la 2a condición es verdadera → <strong style="color: #ffc107;">hacer B</strong>
+                </p>
+                <p style="font-size: 1.1em; margin-top: 8px;">
+                    <strong style="color: #dc3545;">SI NO</strong> (ninguna es verdadera) → <strong style="color: #dc3545;">hacer C</strong>
+                </p>
+            </div>
+
+            <div class="info-box">
+                <h3 style="border: none; color: #667eea;">Ejemplo: ¿Qué me pongo?</h3>
+                <div class="step-item">
+                    <div class="icon-circle" style="background: linear-gradient(135deg, #667eea, #764ba2);">1</div>
+                    <span><strong>Si</strong> hace mucho frío → abrigo + bufanda 🧣</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle" style="background: linear-gradient(135deg, #ffc107, #ff9800);">2</div>
+                    <span><strong>Si no, si</strong> hace un poco de frío → solo chaqueta 🧥</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle" style="background: linear-gradient(135deg, #28a745, #20c997);">3</div>
+                    <span><strong>Si no</strong> → camiseta de manga corta 👕</span>
+                </div>
+            </div>
+
+            <div style="background: #fff3cd; border-radius: 15px; padding: 20px; margin-top: 20px; text-align: center; border: 2px solid #ffc107;">
+                <p style="font-size: 1.1em;">
+                    En App Inventor → haz clic en el <strong style="color: #667eea;">icono azul ⚙️</strong> del bloque <em>if</em> para añadir más condiciones
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 6: Bloques en App Inventor -->
+        <div class="slide">
+            <h1>Bloques en App Inventor 🧩</h1>
+
+            <div style="text-align: center; margin: 15px 0;">
+                <p style="font-size: 1.1em; color: #555;">Los condicionales están en el cajón <strong>"Control"</strong></p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                <div style="background: #e8f5e9; border-radius: 15px; padding: 20px; border: 2px solid #4caf50;">
+                    <h3 style="color: #2e7d32; border: none; text-align: center;">if / then</h3>
+                    <div style="background: #c5a03f; color: white; padding: 10px; border-radius: 8px; margin: 10px 0; font-family: monospace; font-size: 0.95em;">
+                        <strong>if</strong> &nbsp; [ condición ]<br>
+                        <strong>then</strong> &nbsp; hacer algo
+                    </div>
+                    <p style="font-size: 0.9em; color: #555; text-align: center;">Si es verdadero, se ejecuta. Si no, se salta.</p>
+                </div>
+                <div style="background: #e3f2fd; border-radius: 15px; padding: 20px; border: 2px solid #2196f3;">
+                    <h3 style="color: #1565c0; border: none; text-align: center;">if / then / else</h3>
+                    <div style="background: #c5a03f; color: white; padding: 10px; border-radius: 8px; margin: 10px 0; font-family: monospace; font-size: 0.95em;">
+                        <strong>if</strong> &nbsp; [ condición ]<br>
+                        <strong>then</strong> &nbsp; hacer A<br>
+                        <strong>else</strong> &nbsp; hacer B
+                    </div>
+                    <p style="font-size: 0.9em; color: #555; text-align: center;">Siempre hace una de las dos opciones.</p>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 20px;">
+                <h3 style="border: none; color: #667eea;">¿Dónde los encuentro?</h3>
+                <div class="step-item">
+                    <div class="icon-circle">1</div>
+                    <span>Abre el editor de <strong>Bloques</strong></span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">2</div>
+                    <span>En la columna izquierda, busca <strong>"Control"</strong></span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">3</div>
+                    <span>Arrastra el bloque <strong>if</strong> al área de trabajo</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">4</div>
+                    <span>Haz clic en ⚙️ para añadir <strong>else if</strong> o <strong>else</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Comparaciones -->
+        <div class="slide">
+            <h1>Comparaciones ⚖️</h1>
+
+            <div style="text-align: center; margin: 15px 0;">
+                <p style="font-size: 1.1em; color: #555;">Para crear condiciones necesitas <strong>comparar valores</strong></p>
+            </div>
+
+            <div style="text-align: center; margin: 15px 0;">
+                <p style="font-size: 0.95em; color: #888;">Estos bloques están en el cajón <strong>"Math"</strong> (Matemáticas)</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;">
+                <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; text-align: center; border: 2px solid #dee2e6;">
+                    <div style="font-size: 2em; font-weight: bold; color: #667eea;">=</div>
+                    <p><strong>Igual a</strong></p>
+                    <p style="font-size: 0.85em; color: #666;">puntuación = 100</p>
+                </div>
+                <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; text-align: center; border: 2px solid #dee2e6;">
+                    <div style="font-size: 2em; font-weight: bold; color: #667eea;">≠</div>
+                    <p><strong>Distinto de</strong></p>
+                    <p style="font-size: 0.85em; color: #666;">nombre ≠ vacío</p>
+                </div>
+                <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; text-align: center; border: 2px solid #dee2e6;">
+                    <div style="font-size: 2em; font-weight: bold; color: #667eea;">&gt;</div>
+                    <p><strong>Mayor que</strong></p>
+                    <p style="font-size: 0.85em; color: #666;">temperatura &gt; 22</p>
+                </div>
+                <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; text-align: center; border: 2px solid #dee2e6;">
+                    <div style="font-size: 2em; font-weight: bold; color: #667eea;">&lt;</div>
+                    <p><strong>Menor que</strong></p>
+                    <p style="font-size: 0.85em; color: #666;">días &lt; 7</p>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 15px;">
+                <h3 style="border: none; color: #667eea;">Bloques de Lógica (cajón "Logic")</h3>
+                <div class="step-item">
+                    <div class="icon-circle" style="background: linear-gradient(135deg, #28a745, #20c997);">Y</div>
+                    <span><strong>and</strong> — Las dos condiciones deben ser verdaderas: "llueve <strong>Y</strong> hace frío"</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle" style="background: linear-gradient(135deg, #ffc107, #ff9800);">O</div>
+                    <span><strong>or</strong> — Al menos una debe ser verdadera: "sábado <strong>O</strong> domingo"</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle" style="background: linear-gradient(135deg, #dc3545, #c82333);">!</div>
+                    <span><strong>not</strong> — Invierte la condición: "<strong>NO</strong> está lloviendo"</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Ejemplo práctico - Juego del Conteo -->
+        <div class="slide">
+            <h1>Ejemplo: Juego del Conteo 🎮</h1>
+
+            <div style="text-align: center; margin: 15px 0;">
+                <p style="font-size: 1.1em; color: #555;">Veamos un ejemplo con condicionales en App Inventor</p>
+            </div>
+
+            <div class="info-box">
+                <h3 style="border: none; color: #667eea;">El juego: Llega exactamente a 100</h3>
+                <p style="margin-left: 15px;">Vas sumando números a un total. ¡Si llegas a 100, ganas! Si te pasas, pierdes.</p>
+            </div>
+
+            <div style="background: #f0f4ff; border-radius: 15px; padding: 25px; margin: 20px 0; border-left: 5px solid #667eea;">
+                <p style="font-size: 1.1em; font-family: monospace;">
+                    <strong style="color: #667eea;">if</strong> &nbsp; PuntuaciónTotal <strong>=</strong> 100
+                </p>
+                <p style="font-size: 1.1em; font-family: monospace; margin-left: 20px;">
+                    <strong style="color: #28a745;">then</strong> &nbsp; Mostrar "¡Has ganado!" 🎉
+                </p>
+                <p style="font-size: 1.1em; font-family: monospace; margin-top: 10px;">
+                    <strong style="color: #764ba2;">else if</strong> &nbsp; PuntuaciónTotal <strong>&gt;</strong> 100
+                </p>
+                <p style="font-size: 1.1em; font-family: monospace; margin-left: 20px;">
+                    <strong style="color: #ffc107;">then</strong> &nbsp; Mostrar "¡Te has pasado!" 😅
+                </p>
+                <p style="font-size: 1.1em; font-family: monospace; margin-top: 10px;">
+                    <strong style="color: #dc3545;">else</strong>
+                </p>
+                <p style="font-size: 1.1em; font-family: monospace; margin-left: 20px;">
+                    Actualizar etiqueta con puntuación
+                </p>
+            </div>
+
+            <div class="tip-card" style="margin-top: 20px;">
+                Fíjate: usamos <strong>if / else if / else</strong> porque hay <strong>3 posibilidades</strong>: exactamente 100, más de 100, o menos de 100
+            </div>
+        </div>
+
+        <!-- Slide 9: Condicionales en SonRISAS -->
+        <div class="slide">
+            <h1>Condicionales en SonRISAS 💜</h1>
+
+            <div style="text-align: center; margin: 15px 0;">
+                <p style="font-size: 1.1em; color: #555;">¿Cómo usaremos condicionales en nuestra app?</p>
+            </div>
+
+            <div class="info-box">
+                <h3 style="border: none; color: #667eea;">📅 Recordatorios de contacto</h3>
+                <div style="background: #f0f4ff; border-radius: 10px; padding: 15px; margin: 10px 0; font-family: monospace; font-size: 0.95em;">
+                    <strong style="color: #667eea;">Si</strong> han pasado más de X días sin contactar →<br>
+                    <strong style="color: #28a745;">&nbsp;&nbsp;Entonces</strong> mostrar recordatorio
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 15px;">
+                <h3 style="border: none; color: #667eea;">😊😐😢 Registro emocional</h3>
+                <div style="background: #f0f4ff; border-radius: 10px; padding: 15px; margin: 10px 0; font-family: monospace; font-size: 0.95em;">
+                    <strong style="color: #667eea;">Si</strong> hay 3+ días tristes seguidos →<br>
+                    <strong style="color: #28a745;">&nbsp;&nbsp;Entonces</strong> sugerir contactar a alguien<br>
+                    <strong style="color: #dc3545;">Si no</strong> →<br>
+                    <strong style="color: #ffc107;">&nbsp;&nbsp;Entonces</strong> mostrar frase motivadora
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 15px;">
+                <h3 style="border: none; color: #667eea;">💬 Frases motivadoras</h3>
+                <div style="background: #f0f4ff; border-radius: 10px; padding: 15px; margin: 10px 0; font-family: monospace; font-size: 0.95em;">
+                    <strong style="color: #667eea;">Si</strong> la persona se siente triste →<br>
+                    <strong style="color: #28a745;">&nbsp;&nbsp;Entonces</strong> mostrar frase de ánimo
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Resumen -->
+        <div class="slide">
+            <h1>¡Ya Sabéis usar Condicionales! 🌟</h1>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <div style="font-size: 5em;">🎉</div>
+            </div>
+
+            <div class="info-box">
+                <div class="step-item">
+                    <div class="icon-circle">✅</div>
+                    <span>Una <strong>condición</strong> es algo que puede ser verdadero o falso</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">✅</div>
+                    <span><strong>if/then</strong> — Si es verdadero, hacer algo</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">✅</div>
+                    <span><strong>if/then/else</strong> — Dos caminos posibles</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">✅</div>
+                    <span><strong>if/else if/else</strong> — Múltiples condiciones</span>
+                </div>
+                <div class="step-item">
+                    <div class="icon-circle">✅</div>
+                    <span>Los bloques están en el cajón <strong>Control</strong> de App Inventor</span>
+                </div>
+            </div>
+
+            <div class="repeat-box" style="margin-top: 30px;">
+                <h2 style="color: white; border: none;">Vocabulario Clave 📖</h2>
+                <p style="font-size: 1.1em; margin-top: 15px;">
+                    <span style="color: #ffd700;">Condición</span> = situación verdadera o falsa
+                </p>
+                <p style="font-size: 1.1em; margin-top: 5px;">
+                    <span style="color: #ffd700;">Condicional</span> = bloque que decide qué hacer según la condición
+                </p>
+                <p style="font-size: 1.1em; margin-top: 5px;">
+                    <span style="color: #ffd700;">if / else</span> = si / si no
+                </p>
+            </div>
+
+            <div class="question-box" style="text-align: center; margin-top: 30px;">
+                <strong>¿Preguntas? 🙋‍♀️</strong>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button id="prevBtn" onclick="changeSlide(-1)">← Anterior</button>
+            <button id="nextBtn" onclick="changeSlide(1)">Siguiente →</button>
+        </div>
+    </div>
+
+    <script src="../../js/presentation.js"></script>
+    <script>
+        initPresentation(10);
+    </script>
+</body>
+</html>

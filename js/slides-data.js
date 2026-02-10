@@ -62,6 +62,13 @@ const slides = [
         description: "Aprende qué es un conjunto de datos saludable, cómo evitar el sesgo, y cómo recopilar datos para tu proyecto.",
         icon: "📊",
         path: "slides/06/conjuntos-de-datos.html"
+    },
+    {
+        session: "Sesión 06",
+        title: "Condicionales en App Inventor",
+        description: "Aprende a usar bloques condicionales (if/then/else) para que tu app tome decisiones.",
+        icon: "🔀",
+        path: "slides/06/condicionales-app-inventor.html"
     }
 ];
 
