@@ -28,6 +28,9 @@
             <a href="#aleatorio">
                 <span class="sidebar-icon">🎲</span> Aleatorio
             </a>
+            <a href="#diseno">
+                <span class="sidebar-icon">🎨</span> Diseño Común
+            </a>
             <a href="#agenda">
                 <span class="sidebar-icon">📇</span> Agenda de Contactos
             </a>
@@ -300,6 +303,127 @@
 
                 <div class="tip-card">
                     El <strong>random integer</strong> va desde 1 hasta el <strong>largo de la lista</strong>, así nunca pide una posición que no existe.
+                </div>
+            </section>
+
+            <!-- ==================== SECCIÓN: DISEÑO COMÚN ==================== -->
+            <section class="guide-section" id="diseno">
+                <h2><span class="section-emoji">🎨</span> Diseño Común (todas las pantallas)</h2>
+
+                <div style="text-align: center; margin: 15px 0;">
+                    <p style="font-size: 1.1em; color: #555;">Antes de programar, todas las pantallas necesitan la <strong>misma estructura base</strong> y barra de título</p>
+                </div>
+
+                <h3>Paso 1: Contenedor principal</h3>
+                <div style="text-align: center; margin: 10px 0;">
+                    <p style="font-size: 1.05em; color: #555;">Cada pantalla necesita un <strong>VerticalArrangement</strong> que contenga todos los demás elementos</p>
+                </div>
+
+                <div class="info-box">
+                    <h3 style="border: none; color: #667eea;">Cómo añadirlo en App Inventor</h3>
+                    <div class="step-item">
+                        <div class="icon-circle">1️⃣</div>
+                        <span>En la parte de arriba a la derecha, seleccionar <strong>Designer</strong></span>
+                    </div>
+                    <div class="step-item">
+                        <div class="icon-circle">2️⃣</div>
+                        <span>En la columna de la izquierda (<strong>Palette</strong>), ir a la sección <strong>Layout</strong></span>
+                    </div>
+                    <div class="step-item">
+                        <div class="icon-circle">3️⃣</div>
+                        <span>Arrastrar <strong>VerticalArrangement</strong> al Viewer</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="icon-circle">4️⃣</div>
+                        <span>En Properties, cambiar <strong>BackgroundColor</strong> a <code style="background: #FFFFD1; padding: 2px 8px; border-radius: 4px; border: 1px solid #ddd;">#FFFFD1</code></span>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    Si ya tenéis elementos en la pantalla, añadid el VerticalArrangement como <strong>primer elemento</strong> y moved todo lo demás dentro de él arrastrándolo.
+                </div>
+
+                <h3>Paso 2: Barra de título (TitleBar)</h3>
+                <div style="text-align: center; margin: 10px 0;">
+                    <p style="font-size: 1.05em; color: #555;">El primer elemento dentro del contenedor es la barra de título, común a todas las pantallas <strong>(menos la de inicio de Elia)</strong></p>
+                </div>
+
+                <div class="info-box">
+                    <h3 style="border: none; color: #667eea;">Crear la barra de título</h3>
+                    <div class="step-item">
+                        <div class="icon-circle">1️⃣</div>
+                        <span>Dentro del VerticalArrangement, arrastrar un <strong>HorizontalArrangement</strong> (Palette → Layout). Renombrarlo a <strong>TitleBar</strong></span>
+                    </div>
+                    <div class="step-item">
+                        <div class="icon-circle">2️⃣</div>
+                        <span>En Properties: <strong>Height = 10%</strong>, <strong>Width = Fill parent</strong></span>
+                    </div>
+                    <div class="step-item">
+                        <div class="icon-circle">3️⃣</div>
+                        <span>Dentro de TitleBar, añadir un <strong>Image</strong> (Palette → User Interface) con la imagen <strong>home.png</strong> — sirve para volver al inicio</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="icon-circle">4️⃣</div>
+                        <span>Al lado del Image, añadir un <strong>Label</strong> (Palette → User Interface) con el título de la pantalla</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin: 20px 0;">
+                    <p style="font-size: 1.05em; color: #555;">Subir la imagen <strong>home.png</strong> a App Inventor: en la columna de la derecha (Media), pulsar <strong>Upload File</strong></p>
+                    <div style="margin: 15px auto; display: inline-block; background: white; padding: 15px 25px; border-radius: 12px; border: 2px solid #ddd; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <img src="https://fgimenez.github.io/technovation-2026/assets/home.png" alt="home.png" style="width: 60px; height: 60px;">
+                        <div style="font-size: 0.85em; color: #888; margin-top: 5px;">home.png</div>
+                    </div>
+                </div>
+
+                <h3>Paso 3: Propiedades del Label de título</h3>
+                <div style="text-align: center; margin: 10px 0;">
+                    <p style="font-size: 1.05em; color: #555;">El Label del título tiene estas propiedades comunes: <strong>FontSize = 40</strong>, <strong>FontTypeface = serif</strong></p>
+                </div>
+
+                <div style="text-align: center; margin: 10px 0;">
+                    <p style="font-size: 1.05em; color: #555;">El texto y color de fondo cambian según la pantalla:</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 25px 0;">
+                    <div style="border-radius: 15px; padding: 20px; text-align: center; border: 2px solid #ddd; background: #FFC166;">
+                        <div style="font-size: 1.5em; margin-bottom: 8px;">💬</div>
+                        <div style="font-family: serif; font-size: 1.4em; font-weight: bold;">Motivation</div>
+                        <div style="font-size: 0.85em; margin-top: 8px; color: #555;">Ana</div>
+                        <div style="font-family: monospace; font-size: 0.75em; margin-top: 5px; background: rgba(255,255,255,0.5); padding: 3px 8px; border-radius: 4px;">#FFC166</div>
+                    </div>
+                    <div style="border-radius: 15px; padding: 20px; text-align: center; border: 2px solid #ddd; background: #D29FDC;">
+                        <div style="font-size: 1.5em; margin-bottom: 8px;">📇</div>
+                        <div style="font-family: serif; font-size: 1.4em; font-weight: bold;">Agenda</div>
+                        <div style="font-size: 0.85em; margin-top: 8px; color: #555;">Elia</div>
+                        <div style="font-family: monospace; font-size: 0.75em; margin-top: 5px; background: rgba(255,255,255,0.5); padding: 3px 8px; border-radius: 4px;">#D29FDC</div>
+                    </div>
+                    <div style="border-radius: 15px; padding: 20px; text-align: center; border: 2px solid #ddd; background: #FFFF84;">
+                        <div style="font-size: 1.5em; margin-bottom: 8px;">😊</div>
+                        <div style="font-family: serif; font-size: 1.4em; font-weight: bold;">Mood Tracker</div>
+                        <div style="font-size: 0.85em; margin-top: 8px; color: #555;">Daniela</div>
+                        <div style="font-family: monospace; font-size: 0.75em; margin-top: 5px; background: rgba(255,255,255,0.5); padding: 3px 8px; border-radius: 4px;">#FFFF84</div>
+                    </div>
+                    <div style="border-radius: 15px; padding: 20px; text-align: center; border: 2px solid #ddd; background: #84D0FF;">
+                        <div style="font-size: 1.5em; margin-bottom: 8px;">🤝</div>
+                        <div style="font-family: serif; font-size: 1.4em; font-weight: bold;">Activities</div>
+                        <div style="font-size: 0.85em; margin-top: 8px; color: #555;">Lena</div>
+                        <div style="font-family: monospace; font-size: 0.75em; margin-top: 5px; background: rgba(255,255,255,0.5); padding: 3px 8px; border-radius: 4px;">#84D0FF</div>
+                    </div>
+                </div>
+
+                <div style="background: #f0f4ff; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #667eea;">
+                    <h3 style="border: none; color: #667eea; font-size: 1em;">Resumen de propiedades del Label de título:</h3>
+                    <div style="display: grid; grid-template-columns: auto 1fr; gap: 8px 15px; margin-top: 10px; font-size: 0.95em;">
+                        <strong>Text:</strong> <span>el título de tu pantalla (ver arriba)</span>
+                        <strong>FontSize:</strong> <span>40</span>
+                        <strong>FontTypeface:</strong> <span>serif</span>
+                        <strong>BackgroundColor:</strong> <span>el color de tu pantalla (ver arriba)</span>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    La pantalla de inicio de Elia (Screen1) <strong>no lleva barra de título</strong> porque es la pantalla principal con los botones de navegación a las demás secciones.
                 </div>
             </section>
 
