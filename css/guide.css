@@ -1,0 +1,217 @@
+/* Estilos para páginas de guía navegable */
+
+/* Override presentation.css body styles */
+body {
+    display: block;
+    padding: 0;
+}
+
+/* Top navigation bar */
+.guide-topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 12px 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.guide-topnav .nav-link {
+    font-size: 13px;
+    padding: 6px 14px;
+}
+
+/* Main layout: sidebar + content */
+.guide-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: calc(100vh - 52px);
+}
+
+/* Sidebar */
+.guide-sidebar {
+    position: sticky;
+    top: 52px;
+    height: calc(100vh - 52px);
+    overflow-y: auto;
+    background: white;
+    border-right: 1px solid #e8e8f0;
+    padding: 20px 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.guide-sidebar h3 {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    padding: 0 20px;
+    margin: 0 0 10px 0;
+}
+
+.guide-sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #555;
+    font-size: 0.95em;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.guide-sidebar a:hover {
+    background: #f8f9ff;
+    color: #667eea;
+}
+
+.guide-sidebar a.active {
+    background: #f0f2ff;
+    color: #667eea;
+    border-left-color: #667eea;
+    font-weight: bold;
+}
+
+.guide-sidebar .sidebar-icon {
+    font-size: 1.2em;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* Main content area */
+.guide-content {
+    padding: 40px 50px 80px 50px;
+    background: white;
+}
+
+/* Section styling */
+.guide-section {
+    margin-bottom: 60px;
+    scroll-margin-top: 70px;
+}
+
+.guide-section h2 {
+    color: #764ba2;
+    font-size: 2em;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #667eea;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.guide-section h2 .section-emoji {
+    font-size: 1em;
+}
+
+/* Sub-section titles */
+.guide-section h3 {
+    color: #667eea;
+    font-size: 1.3em;
+    margin: 30px 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e8e8f0;
+}
+
+/* Guide intro header */
+.guide-header {
+    text-align: center;
+    padding: 40px 0 30px 0;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #f0f0f5;
+}
+
+.guide-header h1 {
+    margin-bottom: 15px;
+}
+
+.guide-header p {
+    font-size: 1.1em;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Step items inside guide (reuse from presentation but ensure display) */
+.guide-section .step-item {
+    padding: 15px;
+    margin: 10px 0;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.guide-section .step-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .guide-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .guide-sidebar {
+        position: sticky;
+        top: 52px;
+        height: auto;
+        max-height: none;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        padding: 0;
+        display: flex;
+        border-right: none;
+        border-bottom: 1px solid #e8e8f0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .guide-sidebar h3 {
+        display: none;
+    }
+
+    .guide-sidebar a {
+        padding: 12px 16px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        font-size: 0.85em;
+        white-space: nowrap;
+    }
+
+    .guide-sidebar a.active {
+        border-left-color: transparent;
+        border-bottom-color: #667eea;
+    }
+
+    .guide-content {
+        padding: 30px 20px 60px 20px;
+    }
+
+    .guide-section {
+        scroll-margin-top: 120px;
+    }
+}
+
+@media (max-width: 600px) {
+    .guide-topnav {
+        padding: 10px 15px;
+    }
+
+    .guide-content {
+        padding: 20px 15px 40px 15px;
+    }
+
+    .guide-section h2 {
+        font-size: 1.5em;
+    }
+}

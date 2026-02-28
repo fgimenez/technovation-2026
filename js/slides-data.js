@@ -76,6 +76,14 @@ const slides = [
         description: "Plan detallado con tareas, fechas y responsables para cada funcionalidad de la app SonRISAS.",
         icon: "📅",
         path: "slides/06/plan-proyecto.html"
+    },
+    {
+        session: "Sesión 08",
+        title: "Guía: Listas, TinyDB y Registro Emocional",
+        description: "Guía navegable de referencia con todas las secciones: Listas, TinyDB, Aleatorio, Frases, Actividades y Registro Emocional.",
+        icon: "📖",
+        path: "slides/08/guia-listas-tinydb.html",
+        type: "guide"
     }
 ];
 
@@ -95,8 +103,12 @@ function loadSlides() {
         card.href = slide.path;
         card.className = 'slide-card';
 
+        const badge = slide.type === 'guide'
+            ? `<span class="slide-session" style="background: linear-gradient(135deg, #28a745, #20c997);">${slide.session} — Guía</span>`
+            : `<span class="slide-session">${slide.session}</span>`;
+
         card.innerHTML = `
-            <span class="slide-session">${slide.session}</span>
+            ${badge}
             <div class="slide-icon">${slide.icon}</div>
             <h3 class="slide-title">${slide.title}</h3>
             <p class="slide-description">${slide.description}</p>
