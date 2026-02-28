@@ -381,27 +381,27 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><span class="task-name">1. Tutorial TinyDB + disenar pantalla en papel</span><br>Aprender a guardar/cargar datos. Boceto: formulario + lista de contactos</td>
+                        <td><span class="task-name">1. Tutorial TinyDB + disenar pantallas en papel</span><br>Aprender a guardar/cargar datos. Bocetos de las 3 pantallas: principal (lista + popup Call/SMS), gestion y edicion de contacto</td>
                         <td class="who-col">___________</td>
                         <td class="date-col">20 feb</td>
                     </tr>
                     <tr>
-                        <td><span class="task-name">2. Crear pantalla en App Inventor</span><br>TextBox para nombre/telefono, boton guardar, ListView para contactos</td>
+                        <td><span class="task-name">2. Crear pantallas en App Inventor</span><br>Pantalla principal: ListView, ContactPicker ("Add Contact"), ButtonManage. ManageContactsScreen: ListView. EditContactScreen: TextBoxes, botones frecuencia, Save y Delete</td>
                         <td class="who-col">___________</td>
                         <td class="date-col">27 feb</td>
                     </tr>
                     <tr>
-                        <td><span class="task-name">3. Programar guardar y mostrar contactos</span><br>Guardar en TinyDB, cargar lista al abrir, ver cada contacto</td>
+                        <td><span class="task-name">3. Programar guardar y mostrar contactos</span><br>ContactPicker.AfterPicking guarda en TinyDB, loadContactList carga la lista al abrir</td>
                         <td class="who-col">___________</td>
                         <td class="date-col">27 feb</td>
                     </tr>
                     <tr>
-                        <td><span class="task-name">4. Programar boton Llamar y SMS</span><br>Componentes PhoneCall y Texting: boton directo para llamar o enviar mensaje</td>
+                        <td><span class="task-name">4. Programar popup Call/SMS + gestion</span><br>Al tocar contacto: Notifier.ShowChooseDialog con Call/SMS. ButtonManage abre ManageContactsScreen. EditContactScreen: guardar y eliminar contacto</td>
                         <td class="who-col">___________</td>
                         <td class="date-col">6 mar</td>
                     </tr>
                     <tr>
-                        <td><span class="task-name">5. Programar recordatorios</span><br>Clock + Notifier: avisar "Hace X dias que no contactas a [nombre]"</td>
+                        <td><span class="task-name">5. Programar recordatorios</span><br>En Screen1.Initialize: recorrer contactos, calcular dias con Clock, mostrar aviso con Notifier si toca recordatorio</td>
                         <td class="who-col">___________</td>
                         <td class="date-col">6 mar</td>
                     </tr>
@@ -414,7 +414,7 @@
             </table>
 
             <div class="resources-box">
-                <strong>Recursos:</strong> Tutorial TinyDB, tutorial PhoneCall/Texting, personas mayores para probar
+                <strong>Recursos:</strong> Tutorial TinyDB, tutorial PhoneCall/Texting, Notifier, personas mayores para probar
             </div>
             <div class="blockers-box">
                 <strong>Bloqueos:</strong> Necesitan aprender TinyDB (tarea 1). Encontrar personas mayores para pruebas.
@@ -438,27 +438,22 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><span class="task-name">1. Crear lista de actividades</span><br>Pensar 30-40 ideas: manualidades, cocinar juntos, juegos, caminar...</td>
+                        <td><span class="task-name">1. Crear lista de actividades por categoria</span><br>Pensar 5-8 ideas por categoria: Cooking, Games, Outdoors, Creativity (en ingles)</td>
                         <td class="who-col">___________</td>
                         <td class="date-col">20 feb</td>
                     </tr>
                     <tr>
-                        <td><span class="task-name">2. Disenar pantalla en App Inventor</span><br>Boton "Sugerencia aleatoria", ListPicker para categoria</td>
+                        <td><span class="task-name">2. Disenar pantalla en App Inventor</span><br>4 botones de categoria (ButtonCooking, ButtonGames, ButtonOutdoors, ButtonCreativity) + LabelActivity para mostrar la sugerencia</td>
                         <td class="who-col">___________</td>
                         <td class="date-col">27 feb</td>
                     </tr>
                     <tr>
-                        <td><span class="task-name">3. Programar sugerencia aleatoria</span><br>Elegir actividad al azar de la lista (bloque "pick a random item")</td>
+                        <td><span class="task-name">3. Cargar actividades + programar boton por categoria</span><br>En Screen.Initialize cargar listas en TinyDB con prefijos ("activities_cooking", etc). Cada boton elige al azar con select list item + random integer</td>
                         <td class="who-col">___________</td>
                         <td class="date-col">6 mar</td>
                     </tr>
                     <tr>
-                        <td><span class="task-name">4. Programar favoritas</span><br>Guardar actividades favoritas en TinyDB</td>
-                        <td class="who-col">___________</td>
-                        <td class="date-col">6 mar</td>
-                    </tr>
-                    <tr>
-                        <td><span class="task-name">5. Pruebas y solucionar problemas</span></td>
+                        <td><span class="task-name">4. Pruebas y solucionar problemas</span></td>
                         <td class="who-col">Equipo</td>
                         <td class="date-col">13 mar</td>
                     </tr>
@@ -466,7 +461,7 @@
             </table>
 
             <div class="resources-box">
-                <strong>Recursos:</strong> Lista de actividades (investigacion previa), TinyDB
+                <strong>Recursos:</strong> Lista de actividades por categoria (investigacion previa), TinyDB
             </div>
             <div class="blockers-box">
                 <strong>Bloqueos:</strong> Ninguno - se desarrolla en paralelo con las demas funcionalidades
@@ -490,22 +485,22 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><span class="task-name">1. Disenar las 3 caritas</span><br>Crear o buscar imagenes grandes y claras: &#128522; &#128528; &#128546;</td>
+                        <td><span class="task-name">1. Elegir emojis para las 3 emociones</span><br>Usar emojis directamente como texto de los botones: &#128522; Happy, &#128528; Okay, &#128546; Sad</td>
                         <td class="who-col">___________</td>
                         <td class="date-col">20 feb</td>
                     </tr>
                     <tr>
-                        <td><span class="task-name">2. Crear pantalla en App Inventor</span><br>3 botones con las caritas + espacio para historial reciente</td>
+                        <td><span class="task-name">2. Crear pantalla en App Inventor</span><br>3 botones grandes (ButtonHappy, ButtonOkay, ButtonSad), LabelMoodHistory (historial), LabelSuggestion (sugerencia, oculto) + 3 botones de navegacion ocultos (ButtonGoContacts, ButtonGoActivities, ButtonGoQuotes)</td>
                         <td class="who-col">___________</td>
                         <td class="date-col">27 feb</td>
                     </tr>
                     <tr>
-                        <td><span class="task-name">3. Programar guardar emocion diaria</span><br>Al tocar una carita, guardar en TinyDB con la fecha del dia</td>
+                        <td><span class="task-name">3. Programar guardar emocion + historial</span><br>Al tocar carita, guardar emoji en lista en TinyDB (maximo 7). Procedimiento showMoodHistory para mostrar emojis en el label</td>
                         <td class="who-col">___________</td>
                         <td class="date-col">6 mar</td>
                     </tr>
                     <tr>
-                        <td><span class="task-name">4. Programar logica de alerta</span><br>Si 3+ dias tristes &#8594; Notifier sugiere contactar a alguien</td>
+                        <td><span class="task-name">4. Programar deteccion de tristeza</span><br>Procedimiento checkSadness: si los ultimos 3 no son Happy &#8594; mostrar sugerencia y botones de navegacion a contactos, actividades y frases</td>
                         <td class="who-col">___________</td>
                         <td class="date-col">6 mar</td>
                     </tr>
@@ -518,7 +513,7 @@
             </table>
 
             <div class="resources-box">
-                <strong>Recursos:</strong> Imagenes de caritas (dibujar o buscar sin copyright), TinyDB
+                <strong>Recursos:</strong> Emojis (texto en botones, no necesita imagenes), TinyDB
             </div>
             <div class="blockers-box">
                 <strong>Bloqueos:</strong> Ninguno - se desarrolla en paralelo con las demas funcionalidades
@@ -542,22 +537,22 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><span class="task-name">1. Recopilar frases</span><br>Buscar 20-30 frases motivadoras sobre amistad, familia y compania</td>
+                        <td><span class="task-name">1. Recopilar frases</span><br>Buscar 15-20 frases motivadoras sobre amistad, familia y compania (en ingles)</td>
                         <td class="who-col">___________</td>
                         <td class="date-col">20 feb</td>
                     </tr>
                     <tr>
-                        <td><span class="task-name">2. Disenar pantalla en App Inventor</span><br>Espacio grande para la frase, boton "Nueva frase", boton "Compartir por SMS"</td>
+                        <td><span class="task-name">2. Disenar pantalla en App Inventor</span><br>LabelQuote (texto grande), ButtonNewQuote ("New quote"), ButtonShare ("Share"). Componentes no visibles: TinyDB y Texting</td>
                         <td class="who-col">___________</td>
                         <td class="date-col">27 feb</td>
                     </tr>
                     <tr>
-                        <td><span class="task-name">3. Programar frase aleatoria</span><br>Mostrar una frase al azar al pulsar el boton (bloque "pick a random item")</td>
+                        <td><span class="task-name">3. Cargar frases + programar boton aleatorio</span><br>En Screen.Initialize cargar frases en TinyDB. ButtonNewQuote: select list item con random integer para mostrar frase al azar</td>
                         <td class="who-col">___________</td>
                         <td class="date-col">6 mar</td>
                     </tr>
                     <tr>
-                        <td><span class="task-name">4. Programar compartir por SMS</span><br>Componente Texting: enviar la frase a un contacto elegido</td>
+                        <td><span class="task-name">4. Programar compartir por SMS</span><br>Componente Texting: enviar la frase actual a un contacto elegido</td>
                         <td class="who-col">___________</td>
                         <td class="date-col">6 mar</td>
                     </tr>
@@ -570,7 +565,7 @@
             </table>
 
             <div class="resources-box">
-                <strong>Recursos:</strong> Investigacion de frases, componente Texting
+                <strong>Recursos:</strong> Investigacion de frases, componente Texting, TinyDB
             </div>
             <div class="blockers-box">
                 <strong>Bloqueos:</strong> Ninguno - se desarrolla en paralelo con las demas funcionalidades
