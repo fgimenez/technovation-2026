@@ -447,7 +447,6 @@
                             </div>
                             <div style="display: flex; gap: 5px; justify-content: center; margin-top: 10px;">
                                 <span style="background: #667eea; color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.85em;">+ Add Contact</span>
-                                <span style="background: #6c757d; color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.85em;">⚙ Manage</span>
                             </div>
                         </div>
                         <div style="text-align: center; margin-top: 8px; font-size: 0.8em; color: #1565c0;">Toca un nombre → popup</div>
@@ -458,7 +457,7 @@
                             <div style="font-weight: bold; font-size: 1.1em; margin-bottom: 15px; color: #333;">Uncle Pedro</div>
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 <span style="background: #dc3545; color: white; padding: 10px 16px; border-radius: 8px; font-size: 1em;">📞 Call</span>
-                                <span style="background: #17a2b8; color: white; padding: 10px 16px; border-radius: 8px; font-size: 1em;">💬 SMS</span>
+                                <span style="background: #6c757d; color: white; padding: 10px 16px; border-radius: 8px; font-size: 1em;">⚙️ Manage</span>
                             </div>
                             <div style="margin-top: 10px; color: #999; font-size: 0.85em;">Cancel</div>
                         </div>
@@ -502,11 +501,11 @@
                     </div>
                     <div class="step-item">
                         <div class="icon-circle">3️⃣</div>
-                        <span>Toca un contacto en la lista → aparece popup con <strong>📞 Call</strong> y <strong>💬 SMS</strong></span>
+                        <span>Toca un contacto en la lista → aparece popup con <strong>📞 Call</strong> y <strong>⚙️ Manage</strong></span>
                     </div>
                     <div class="step-item">
                         <div class="icon-circle">4️⃣</div>
-                        <span>Botón <strong>"Manage"</strong> → pantalla para editar o eliminar contactos</span>
+                        <span>Si elige <strong>"⚙️ Manage"</strong> → pantalla para editar o eliminar ese contacto</span>
                     </div>
                     <div class="step-item">
                         <div class="icon-circle">5️⃣</div>
@@ -524,8 +523,6 @@
                         <div style="background: #28a745; color: white; padding: 8px 15px; border-radius: 8px; font-weight: bold;">ListPicker</div>
                         <span style="padding-top: 8px;"><strong>ListPickerAddContact</strong> — botón "Add Contact" que muestra la lista de contactos del teléfono</span>
 
-                        <div style="background: #6c757d; color: white; padding: 8px 15px; border-radius: 8px; font-weight: bold;">Button</div>
-                        <span style="padding-top: 8px;"><strong>ButtonManage</strong> — "⚙ Manage" abre la pantalla de gestión de contactos</span>
                     </div>
                 </div>
 
@@ -537,9 +534,6 @@
 
                         <div style="background: #dc3545; color: white; padding: 8px 15px; border-radius: 8px; font-weight: bold;">PhoneCall</div>
                         <span style="padding-top: 8px;"><strong>PhoneCall1</strong> — para hacer llamadas</span>
-
-                        <div style="background: #17a2b8; color: white; padding: 8px 15px; border-radius: 8px; font-weight: bold;">Texting</div>
-                        <span style="padding-top: 8px;"><strong>Texting1</strong> — para enviar SMS</span>
 
                         <div style="background: #ffc107; color: #333; padding: 8px 15px; border-radius: 8px; font-weight: bold;">TinyDB</div>
                         <span style="padding-top: 8px;"><strong>TinyDB1</strong> — almacena contactos y configuración</span>
@@ -701,7 +695,7 @@
                     <strong>ListPicker</strong> se comporta como un botón: al pulsarlo abre automáticamente la lista de elementos asignada. El texto del botón puede ser "➕ Add Contact". A diferencia del ContactPicker nativo, <strong>funciona correctamente en todas las versiones de Android</strong>.
                 </div>
 
-                <h3>Llamar o Enviar SMS</h3>
+                <h3>Llamar y Gestionar</h3>
                 <div style="text-align: center; margin: 10px 0;">
                     <p style="font-size: 1.1em; color: #555;">Al tocar un contacto, aparece un <strong>popup centrado</strong> con dos opciones claras</p>
                 </div>
@@ -710,12 +704,12 @@
                     <h3 style="border: none; color: #667eea; font-size: 1em;">Mostrar popup al tocar un contacto:</h3>
                     <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
                         <p><strong style="color: #c5a03f;">cuando</strong> ListViewContacts.<strong>AfterPicking</strong>:</p>
-                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> selectedContact = ListViewContacts.<strong>Selection</strong></p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set global</strong> selectedContact = ListViewContacts.<strong>Selection</strong></p>
                         <p style="margin-left: 15px;">Notifier1.ShowChooseDialog(</p>
                         <p style="margin-left: 30px;">message: selectedContact</p>
-                        <p style="margin-left: 30px;">title: <strong>"What do you want to do?"</strong></p>
+                        <p style="margin-left: 30px;">title: <strong>"¿Qué quieres hacer?"</strong></p>
                         <p style="margin-left: 30px;">button1Text: <strong>"📞 Call"</strong></p>
-                        <p style="margin-left: 30px;">button2Text: <strong>"💬 SMS"</strong></p>
+                        <p style="margin-left: 30px;">button2Text: <strong>"⚙️ Manage"</strong></p>
                         <p style="margin-left: 30px;">cancelable: <strong>true</strong></p>
                         <p style="margin-left: 15px;">)</p>
                     </div>
@@ -725,58 +719,21 @@
                     <h3 style="border: none; color: #2e7d32; font-size: 1em;">Ejecutar la acción elegida:</h3>
                     <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
                         <p><strong style="color: #c5a03f;">cuando</strong> Notifier1.<strong>AfterChoosing</strong>(choice):</p>
-                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> phone = TinyDB1.GetValue(<strong>join("contact_phone_", selectedContact)</strong>)</p>
                         <p>&nbsp;</p>
                         <p style="margin-left: 15px;"><strong style="color: #dc3545;">si</strong> choice = "📞 Call":</p>
+                        <p style="margin-left: 30px;"><strong style="color: #667eea;">set</strong> phone = TinyDB1.GetValue(<strong>join("contact_phone_", global selectedContact)</strong>)</p>
                         <p style="margin-left: 30px;"><strong style="color: #667eea;">set</strong> PhoneCall1.PhoneNumber = phone</p>
                         <p style="margin-left: 30px;">PhoneCall1.<strong>MakePhoneCall</strong></p>
                         <p>&nbsp;</p>
-                        <p style="margin-left: 15px;"><strong style="color: #dc3545;">si</strong> choice = "💬 SMS":</p>
-                        <p style="margin-left: 30px;"><strong style="color: #667eea;">set</strong> Texting1.PhoneNumber = phone</p>
-                        <p style="margin-left: 30px;"><strong style="color: #667eea;">set</strong> Texting1.Message = <strong>"Hi! Just thinking of you 😊"</strong></p>
-                        <p style="margin-left: 30px;">Texting1.<strong>SendMessage</strong></p>
+                        <p style="margin-left: 15px;"><strong style="color: #dc3545;">si</strong> choice = "⚙️ Manage":</p>
+                        <p style="margin-left: 30px;"><strong style="color: #667eea;">open another screen with start value</strong></p>
+                        <p style="margin-left: 45px;">screenName: <strong>"EditContactScreen"</strong></p>
+                        <p style="margin-left: 45px;">startValue: global selectedContact</p>
                     </div>
                 </div>
 
                 <div class="tip-card">
-                    <strong>ShowChooseDialog</strong> crea un popup centrado en la pantalla. Es mucho más claro para personas mayores que buscar botones en la pantalla. Si el usuario toca fuera del popup, se cierra (cancelable = true).
-                </div>
-
-                <h3>Gestionar Contactos</h3>
-                <div style="text-align: center; margin: 10px 0;">
-                    <p style="font-size: 1.1em; color: #555;">El botón <strong>"Manage"</strong> abre una pantalla separada para editar o eliminar contactos</p>
-                </div>
-
-                <div style="background: #f0f4ff; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #6c757d;">
-                    <h3 style="border: none; color: #555; font-size: 1em;">Abrir pantalla de gestión:</h3>
-                    <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
-                        <p><strong style="color: #c5a03f;">cuando</strong> ButtonManage.<strong>Click</strong>:</p>
-                        <p style="margin-left: 15px;"><strong style="color: #667eea;">open another screen</strong> <strong>"ManageContactsScreen"</strong></p>
-                    </div>
-                </div>
-
-                <div class="info-box">
-                    <h3 style="border: none; color: #667eea;">ManageContactsScreen: Componentes</h3>
-                    <div style="display: grid; grid-template-columns: auto 1fr; gap: 10px; margin-top: 10px;">
-                        <div style="background: #667eea; color: white; padding: 8px 15px; border-radius: 8px; font-weight: bold;">ListView</div>
-                        <span style="padding-top: 8px;"><strong>ListViewManage</strong> — misma lista de contactos</span>
-
-                        <div style="background: #ffc107; color: #333; padding: 8px 15px; border-radius: 8px; font-weight: bold;">TinyDB</div>
-                        <span style="padding-top: 8px;"><strong>TinyDB1</strong> — leer la lista de contactos</span>
-                    </div>
-                </div>
-
-                <div style="background: #f0f4ff; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #ff9800;">
-                    <h3 style="border: none; color: #e65100; font-size: 1em;">Al tocar un contacto → abrir pantalla de edición:</h3>
-                    <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
-                        <p><strong style="color: #c5a03f;">cuando</strong> ManageContactsScreen.<strong>Initialize</strong>:</p>
-                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> ListViewManage.Elements = TinyDB1.GetValue(<strong>"contacts"</strong>, make a list())</p>
-                        <p>&nbsp;</p>
-                        <p><strong style="color: #c5a03f;">cuando</strong> ListViewManage.<strong>AfterPicking</strong>:</p>
-                        <p style="margin-left: 15px;"><strong style="color: #667eea;">open another screen with start value</strong></p>
-                        <p style="margin-left: 30px;">screenName: <strong>"EditContactScreen"</strong></p>
-                        <p style="margin-left: 30px;">startValue: ListViewManage.<strong>Selection</strong></p>
-                    </div>
+                    <strong>ShowChooseDialog</strong> crea un popup centrado en la pantalla. Es mucho más claro para personas mayores que buscar botones en la pantalla. Si el usuario toca fuera del popup, se cierra (cancelable = true). Con este diseño <strong>no hace falta una pantalla intermedia de gestión</strong>: desde el popup se va directamente a editar el contacto seleccionado.
                 </div>
 
                 <h3>Pantalla Editar Contacto</h3>
