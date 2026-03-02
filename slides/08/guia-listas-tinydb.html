@@ -494,7 +494,7 @@
                     <h3 style="border: none; color: #667eea;">Flujo del usuario</h3>
                     <div class="step-item">
                         <div class="icon-circle">1️⃣</div>
-                        <span>Pulsa <strong>"Add Contact"</strong> → se abre la agenda del teléfono (ContactPicker)</span>
+                        <span>Pulsa <strong>"Add Contact"</strong> → se abre una lista con todos los contactos del teléfono (ListPicker + extensión PhoneNumberTools)</span>
                     </div>
                     <div class="step-item">
                         <div class="icon-circle">2️⃣</div>
@@ -521,8 +521,8 @@
                         <div style="background: #667eea; color: white; padding: 8px 15px; border-radius: 8px; font-weight: bold;">ListView</div>
                         <span style="padding-top: 8px;"><strong>ListViewContacts</strong> — muestra la lista de contactos guardados</span>
 
-                        <div style="background: #28a745; color: white; padding: 8px 15px; border-radius: 8px; font-weight: bold;">ContactPicker</div>
-                        <span style="padding-top: 8px;"><strong>ContactPicker1</strong> — botón "Add Contact" que abre la agenda del teléfono</span>
+                        <div style="background: #28a745; color: white; padding: 8px 15px; border-radius: 8px; font-weight: bold;">ListPicker</div>
+                        <span style="padding-top: 8px;"><strong>ListPickerAddContact</strong> — botón "Add Contact" que muestra la lista de contactos del teléfono</span>
 
                         <div style="background: #6c757d; color: white; padding: 8px 15px; border-radius: 8px; font-weight: bold;">Button</div>
                         <span style="padding-top: 8px;"><strong>ButtonManage</strong> — "⚙ Manage" abre la pantalla de gestión de contactos</span>
@@ -546,6 +546,9 @@
 
                         <div style="background: #6f42c1; color: white; padding: 8px 15px; border-radius: 8px; font-weight: bold;">Clock</div>
                         <span style="padding-top: 8px;"><strong>Clock1</strong> — para operaciones con fechas (recordatorios)</span>
+
+                        <div style="background: #e83e8c; color: white; padding: 8px 15px; border-radius: 8px; font-weight: bold;">Extension</div>
+                        <span style="padding-top: 8px;"><strong>PhoneNumberTools1</strong> — extensión (io.mohamed.PhoneNumbersTools) que carga la lista de contactos del teléfono</span>
                     </div>
                 </div>
 
@@ -598,17 +601,77 @@
 
                 <h3>Añadir Contactos</h3>
                 <div style="text-align: center; margin: 10px 0;">
-                    <p style="font-size: 1.1em; color: #555;">Usamos <strong>ContactPicker</strong> para que solo se puedan añadir contactos reales del teléfono</p>
+                    <p style="font-size: 1.1em; color: #555;">Usamos la extensión <strong>PhoneNumberTools</strong> + <strong>ListPicker</strong> para mostrar solo contactos reales del teléfono</p>
+                </div>
+
+                <div style="background: #fff3cd; border-radius: 15px; padding: 20px; margin: 15px 0; border: 2px solid #ffc107;">
+                    <h3 style="border: none; color: #856404;">⚠️ ¿Por qué no usamos ContactPicker?</h3>
+                    <p style="margin-top: 8px; color: #555;">El componente nativo <strong>ContactPicker</strong> tiene un bug en Android 13+ que muestra el selector de archivos en vez de los contactos. La solución es usar la extensión <strong>PhoneNumberTools</strong> (io.mohamed.PhoneNumbersTools) para cargar los contactos del teléfono y un <strong>ListPicker</strong> para que el usuario elija.</p>
+                </div>
+
+                <div class="info-box">
+                    <h3 style="border: none; color: #667eea;">Flujo con extensión + ListPicker</h3>
+                    <div class="step-item">
+                        <div class="icon-circle">1️⃣</div>
+                        <span>Al <strong>iniciar la pantalla</strong>, la extensión carga todos los contactos del teléfono en dos listas: nombres y teléfonos</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="icon-circle">2️⃣</div>
+                        <span>Los nombres se asignan al <strong>ListPickerAddContact</strong> como elementos</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="icon-circle">3️⃣</div>
+                        <span>El usuario pulsa <strong>"Add Contact"</strong> → el ListPicker abre la lista de nombres</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="icon-circle">4️⃣</div>
+                        <span>El usuario elige un nombre → usamos <strong>SelectionIndex</strong> para obtener el teléfono de la lista paralela</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="icon-circle">5️⃣</div>
+                        <span>Guardamos nombre y teléfono en <strong>TinyDB</strong></span>
+                    </div>
+                </div>
+
+                <div style="background: #fce4ec; border-radius: 15px; padding: 20px; margin: 15px 0; border: 2px solid #e91e63;">
+                    <h3 style="border: none; color: #c2185b; text-align: center;">Variables globales necesarias</h3>
+                    <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
+                        <p><strong style="color: #667eea;">global</strong> phoneBookNames = make a list()&nbsp;&nbsp;&nbsp;<span style="color: #888;">// nombres de todos los contactos del teléfono</span></p>
+                        <p><strong style="color: #667eea;">global</strong> phoneBookPhones = make a list()&nbsp;&nbsp;<span style="color: #888;">// teléfonos de todos los contactos (índice paralelo)</span></p>
+                    </div>
+                </div>
+
+                <div style="background: #f0f4ff; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #e83e8c;">
+                    <h3 style="border: none; color: #e83e8c; font-size: 1em;">Paso 1 — Cargar contactos al iniciar la pantalla:</h3>
+                    <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
+                        <p><strong style="color: #c5a03f;">cuando</strong> Screen1.<strong>Initialize</strong>:</p>
+                        <p style="margin-left: 15px;"><strong style="color: #e83e8c;">call</strong> PhoneNumberTools1.<strong>GetContactNameListAsync</strong></p>
+                        <p style="margin-left: 15px;"><strong style="color: #e83e8c;">call</strong> PhoneNumberTools1.<strong>GetPhoneNumberListAsync</strong></p>
+                        <p style="margin-left: 15px;"><strong style="color: #764ba2;">call</strong> loadContactList&nbsp;&nbsp;&nbsp;<span style="color: #888;">// cargar contactos guardados en TinyDB</span></p>
+                    </div>
+                </div>
+
+                <div style="background: #f0f4ff; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #e83e8c;">
+                    <h3 style="border: none; color: #e83e8c; font-size: 1em;">Paso 2 — Guardar listas cuando la extensión termina de cargar:</h3>
+                    <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
+                        <p><strong style="color: #c5a03f;">cuando</strong> PhoneNumberTools1.<strong>GotContactNameList</strong>(nameList):</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set global</strong> phoneBookNames = nameList</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> ListPickerAddContact.Elements = nameList</p>
+                        <p>&nbsp;</p>
+                        <p><strong style="color: #c5a03f;">cuando</strong> PhoneNumberTools1.<strong>GotContactPhoneList</strong>(phoneList):</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set global</strong> phoneBookPhones = phoneList</p>
+                    </div>
                 </div>
 
                 <div style="background: #f0f4ff; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #764ba2;">
-                    <h3 style="border: none; color: #764ba2; font-size: 1em;">Cuando el usuario elige un contacto:</h3>
+                    <h3 style="border: none; color: #764ba2; font-size: 1em;">Paso 3 — Cuando el usuario elige un contacto:</h3>
                     <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
-                        <p><strong style="color: #c5a03f;">cuando</strong> ContactPicker1.<strong>AfterPicking</strong>:</p>
-                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> name = ContactPicker1.<strong>ContactName</strong></p>
-                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> phone = ContactPicker1.<strong>PhoneNumber</strong></p>
+                        <p><strong style="color: #c5a03f;">cuando</strong> ListPickerAddContact.<strong>AfterPicking</strong>:</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> name = ListPickerAddContact.<strong>Selection</strong></p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> index = ListPickerAddContact.<strong>SelectionIndex</strong></p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> phone = <strong>select list item</strong>(global phoneBookPhones, index)</p>
                         <p>&nbsp;</p>
-                        <p style="margin-left: 15px;">// Recuperar lista actual</p>
+                        <p style="margin-left: 15px;">// Recuperar lista actual de contactos guardados</p>
                         <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> contactList = TinyDB1.GetValue(<strong>"contacts"</strong>, make a list())</p>
                         <p>&nbsp;</p>
                         <p style="margin-left: 15px;">// Añadir nuevo contacto</p>
@@ -635,7 +698,7 @@
                 </div>
 
                 <div class="tip-card">
-                    <strong>ContactPicker</strong> parece un botón normal pero al pulsarlo abre la agenda del teléfono. El texto del botón puede ser "Add Contact".
+                    <strong>ListPicker</strong> se comporta como un botón: al pulsarlo abre automáticamente la lista de elementos asignada. El texto del botón puede ser "➕ Add Contact". A diferencia del ContactPicker nativo, <strong>funciona correctamente en todas las versiones de Android</strong>.
                 </div>
 
                 <h3>Llamar o Enviar SMS</h3>
@@ -1271,7 +1334,8 @@
                     <p><span style="color: #ffd700;">Prefijo</span> = nombre al inicio del tag</p>
                     <p><span style="color: #ffd700;">Random</span> = aleatorio, al azar</p>
                     <p><span style="color: #ffd700;">Index</span> = posición en la lista</p>
-                    <p><span style="color: #ffd700;">ContactPicker</span> = selector de contactos</p>
+                    <p><span style="color: #ffd700;">ListPicker</span> = lista desplegable para elegir un elemento</p>
+                    <p><span style="color: #ffd700;">SelectionIndex</span> = posición del elemento elegido en el ListPicker</p>
                     <p><span style="color: #ffd700;">Clock</span> = reloj para fechas</p>
                     <p><span style="color: #ffd700;">Mood Tracker</span> = registro emocional</p>
                 </div>
