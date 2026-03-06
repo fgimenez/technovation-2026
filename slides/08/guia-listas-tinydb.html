@@ -1257,19 +1257,37 @@
 
                 <h3>Guardar y Mostrar Historial</h3>
                 <div style="text-align: center; margin: 10px 0;">
-                    <p style="font-size: 1.1em; color: #555;">Al pulsar un botón de mood: <strong>añadir a la lista</strong>, limitar a 7 y mostrar</p>
+                    <p style="font-size: 1.1em; color: #555;">Al pulsar un botón de mood: comprobar si ya se registró hoy, y si no, <strong>añadir a la lista</strong>, limitar a 7 y mostrar</p>
+                </div>
+
+                <div style="background: #fff8e1; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #f59f00;">
+                    <h3 style="border: none; color: #e67700; font-size: 1em;">Procedimiento: saveMood (valor: texto)</h3>
+                    <p style="font-size: 0.85em; color: #888; margin: 5px 0 10px 0;">Un solo procedimiento para los tres botones. Recibe "happy", "okay" o "sad".</p>
+                    <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
+                        <p><strong style="color: #764ba2;">procedimiento</strong> saveMood(valor):</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> today = Clock1.FormatDate(Clock1.Now())</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> lastMoodDate = TinyDB1.GetValue(<strong>"mood_last_date"</strong>, <strong>""</strong>)</p>
+                        <p>&nbsp;</p>
+                        <p style="margin-left: 15px;"><strong style="color: #dc3545;">si</strong> today = lastMoodDate:</p>
+                        <p style="margin-left: 30px;">Notifier1.ShowAlert(<strong>"You already logged your mood today!"</strong>)</p>
+                        <p style="margin-left: 15px;"><strong style="color: #28a745;">si no</strong>:</p>
+                        <p style="margin-left: 30px;"><strong style="color: #667eea;">set global</strong> moodList = TinyDB1.GetValue(<strong>"moods"</strong>, make a list())</p>
+                        <p style="margin-left: 30px;"><strong style="color: #667eea;">add items to list</strong>(moodList, valor)</p>
+                        <p style="margin-left: 30px;"><strong style="color: #dc3545;">si</strong> length of list(moodList) <strong>></strong> 7:</p>
+                        <p style="margin-left: 45px;"><strong style="color: #667eea;">remove list item</strong>(moodList, index: <strong>1</strong>)</p>
+                        <p style="margin-left: 30px;">TinyDB1.StoreValue(<strong>"moods"</strong>, moodList)</p>
+                        <p style="margin-left: 30px;">TinyDB1.StoreValue(<strong>"mood_last_date"</strong>, today)</p>
+                        <p style="margin-left: 30px;"><strong style="color: #764ba2;">call</strong> showMoodHistory</p>
+                        <p style="margin-left: 30px;"><strong style="color: #764ba2;">call</strong> checkSadness</p>
+                    </div>
                 </div>
 
                 <div style="background: #f0f4ff; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #4caf50;">
-                    <h3 style="border: none; color: #2e7d32; font-size: 1em;">😊 cuando ButtonHappy.Click:</h3>
+                    <h3 style="border: none; color: #2e7d32; font-size: 1em;">Los tres botones llaman al mismo procedimiento:</h3>
                     <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
-                        <p>① <strong style="color: #667eea;">set</strong> moodList = TinyDB1.GetValue(<strong>"moods"</strong>, make a list())</p>
-                        <p>② <strong style="color: #667eea;">add items to list</strong>(moodList, <strong>"happy"</strong>)</p>
-                        <p>③ <strong style="color: #dc3545;">si</strong> length of list(moodList) <strong>></strong> 7:</p>
-                        <p style="margin-left: 20px;"><strong style="color: #667eea;">remove list item</strong>(moodList, index: <strong>1</strong>)</p>
-                        <p>④ TinyDB1.StoreValue(<strong>"moods"</strong>, moodList)</p>
-                        <p>⑤ <strong style="color: #764ba2;">call</strong> showMoodHistory</p>
-                        <p>⑥ <strong style="color: #764ba2;">call</strong> checkSadness</p>
+                        <p><strong style="color: #c5a03f;">cuando</strong> ButtonHappy.<strong>Click</strong>: &nbsp;<strong style="color: #764ba2;">call</strong> saveMood(<strong>"happy"</strong>)</p>
+                        <p><strong style="color: #c5a03f;">cuando</strong> ButtonOkay.<strong>Click</strong>: &nbsp;&nbsp;<strong style="color: #764ba2;">call</strong> saveMood(<strong>"okay"</strong>)</p>
+                        <p><strong style="color: #c5a03f;">cuando</strong> ButtonSad.<strong>Click</strong>: &nbsp;&nbsp;&nbsp;<strong style="color: #764ba2;">call</strong> saveMood(<strong>"sad"</strong>)</p>
                     </div>
                 </div>
 
