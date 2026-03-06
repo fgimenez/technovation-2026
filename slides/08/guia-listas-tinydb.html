@@ -630,8 +630,9 @@
                 <div style="background: #fce4ec; border-radius: 15px; padding: 20px; margin: 15px 0; border: 2px solid #e91e63;">
                     <h3 style="border: none; color: #c2185b; text-align: center;">Variables globales necesarias</h3>
                     <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
-                        <p><strong style="color: #667eea;">global</strong> phoneBookNames = make a list()&nbsp;&nbsp;&nbsp;<span style="color: #888;">// nombres de todos los contactos del teléfono</span></p>
-                        <p><strong style="color: #667eea;">global</strong> phoneBookPhones = make a list()&nbsp;&nbsp;<span style="color: #888;">// teléfonos de todos los contactos (índice paralelo)</span></p>
+                        <p><strong style="color: #667eea;">global</strong> phoneBookNames = make a list()&nbsp;&nbsp;&nbsp;<span style="color: #888;">// nombres originales (con duplicados)</span></p>
+                        <p><strong style="color: #667eea;">global</strong> phoneBookPhones = make a list()&nbsp;&nbsp;<span style="color: #888;">// teléfonos originales (índice paralelo)</span></p>
+                        <p><strong style="color: #667eea;">global</strong> uniqueNames = make a list()&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #888;">// nombres sin duplicados y ordenados (para el ListPicker)</span></p>
                     </div>
                 </div>
 
@@ -650,7 +651,15 @@
                     <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
                         <p><strong style="color: #c5a03f;">cuando</strong> PhoneNumberTools1.<strong>GotContactNameList</strong>(nameList):</p>
                         <p style="margin-left: 15px;"><strong style="color: #667eea;">set global</strong> phoneBookNames = nameList</p>
-                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> ListPickerAddContact.Elements = nameList</p>
+                        <p>&nbsp;</p>
+                        <p style="margin-left: 15px;">// Eliminar duplicados</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set global</strong> uniqueNames = make a list()</p>
+                        <p style="margin-left: 15px;"><strong style="color: #c5a03f;">para cada</strong> name en nameList:</p>
+                        <p style="margin-left: 30px;"><strong style="color: #dc3545;">si</strong> <strong>not</strong> is in list?(name, uniqueNames):</p>
+                        <p style="margin-left: 45px;"><strong style="color: #667eea;">add items to list</strong>(uniqueNames, name)</p>
+                        <p>&nbsp;</p>
+                        <p style="margin-left: 15px;">// Ordenar alfabéticamente y asignar al ListPicker</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> ListPickerAddContact.Elements = <strong>list sort</strong>(uniqueNames)</p>
                         <p>&nbsp;</p>
                         <p><strong style="color: #c5a03f;">cuando</strong> PhoneNumberTools1.<strong>GotContactPhoneList</strong>(phoneList):</p>
                         <p style="margin-left: 15px;"><strong style="color: #667eea;">set global</strong> phoneBookPhones = phoneList</p>
@@ -662,7 +671,8 @@
                     <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
                         <p><strong style="color: #c5a03f;">cuando</strong> ListPickerAddContact.<strong>AfterPicking</strong>:</p>
                         <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> name = ListPickerAddContact.<strong>Selection</strong></p>
-                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> index = ListPickerAddContact.<strong>SelectionIndex</strong></p>
+                        <p style="margin-left: 15px;">// Buscar el teléfono por nombre en la lista original</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> index = <strong>index in list</strong>(name, global phoneBookNames)</p>
                         <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> phone = <strong>select list item</strong>(global phoneBookPhones, index)</p>
                         <p>&nbsp;</p>
                         <p style="margin-left: 15px;">// Recuperar lista actual de contactos guardados</p>
