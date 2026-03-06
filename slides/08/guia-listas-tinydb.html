@@ -750,8 +750,8 @@
                         <div style="background: #667eea; color: white; padding: 8px 15px; border-radius: 8px; font-weight: bold;">TextBox</div>
                         <span style="padding-top: 8px;"><strong>TextBoxPhone</strong> — número de teléfono</span>
 
-                        <div style="background: #764ba2; color: white; padding: 8px 15px; border-radius: 8px; font-weight: bold;">Button x3</div>
-                        <span style="padding-top: 8px;"><strong>Button1Day, Button3Days, Button7Days</strong> — frecuencia de recordatorio</span>
+                        <div style="background: #764ba2; color: white; padding: 8px 15px; border-radius: 8px; font-weight: bold;">ListPicker</div>
+                        <span style="padding-top: 8px;"><strong>ListPickerDays</strong> — frecuencia de recordatorio (texto: "⏰ Cada X días")</span>
 
                         <div style="background: #28a745; color: white; padding: 8px 15px; border-radius: 8px; font-weight: bold;">Button</div>
                         <span style="padding-top: 8px;"><strong>ButtonSave</strong> — "💾 Save" (guardar cambios)</span>
@@ -764,15 +764,34 @@
                     </div>
                 </div>
 
+                <div style="background: #fff8e1; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #f59f00;">
+                    <h3 style="border: none; color: #e67700; font-size: 1em;">Variables globales (en el cajón Variables):</h3>
+                    <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
+                        <p><strong style="color: #667eea;">initialize global</strong> <strong>contactName</strong> = <strong>""</strong></p>
+                        <p><strong style="color: #667eea;">initialize global</strong> <strong>currentDays</strong> = <strong>3</strong></p>
+                        <p><strong style="color: #667eea;">initialize global</strong> <strong>newName</strong> = <strong>""</strong></p>
+                    </div>
+                </div>
+
                 <div style="background: #f0f4ff; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #667eea;">
                     <h3 style="border: none; color: #667eea; font-size: 1em;">Cargar datos al abrir EditContactScreen:</h3>
                     <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
                         <p><strong style="color: #c5a03f;">cuando</strong> EditContactScreen.<strong>Initialize</strong>:</p>
-                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> contactName = <strong>get start value</strong></p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set global contactName</strong> = <strong>get start value</strong></p>
                         <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> TextBoxName.Text = contactName</p>
                         <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> TextBoxPhone.Text = TinyDB1.GetValue(<strong>join("contact_phone_", contactName)</strong>)</p>
-                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> currentDays = TinyDB1.GetValue(<strong>join("contact_days_", contactName)</strong>, 3)</p>
-                        <p style="margin-left: 15px;">// Resaltar el botón de frecuencia activo</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set global currentDays</strong> = TinyDB1.GetValue(<strong>join("contact_days_", contactName)</strong>, 3)</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> ListPickerDays.Elements = make a list(<strong>"1"</strong>, <strong>"3"</strong>, <strong>"7"</strong>)</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> ListPickerDays.Text = join(<strong>"⏰ Cada "</strong>, currentDays, <strong>" días"</strong>)</p>
+                    </div>
+                </div>
+
+                <div style="background: #f0f4ff; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #764ba2;">
+                    <h3 style="border: none; color: #764ba2; font-size: 1em;">⏰ Elegir frecuencia:</h3>
+                    <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
+                        <p><strong style="color: #c5a03f;">cuando</strong> ListPickerDays.<strong>AfterPicking</strong>:</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set global currentDays</strong> = <strong>number</strong>(ListPickerDays.Selection)</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> ListPickerDays.Text = join(<strong>"⏰ Cada "</strong>, currentDays, <strong>" días"</strong>)</p>
                     </div>
                 </div>
 
@@ -780,13 +799,26 @@
                     <h3 style="border: none; color: #2e7d32; font-size: 1em;">💾 Guardar cambios:</h3>
                     <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
                         <p><strong style="color: #c5a03f;">cuando</strong> ButtonSave.<strong>Click</strong>:</p>
-                        <p style="margin-left: 15px;">TinyDB1.StoreValue(<strong>join("contact_phone_", contactName)</strong>, TextBoxPhone.Text)</p>
-                        <p style="margin-left: 15px;">TinyDB1.StoreValue(<strong>join("contact_days_", contactName)</strong>, currentDays)</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> newName = TextBoxName.Text</p>
                         <p>&nbsp;</p>
-                        <p style="margin-left: 15px;">// Si cambió el nombre, actualizar la lista</p>
-                        <p style="margin-left: 15px;"><strong style="color: #dc3545;">si</strong> TextBoxName.Text <strong>≠</strong> contactName:</p>
-                        <p style="margin-left: 30px;">// Reemplazar nombre en la lista de contactos</p>
-                        <p style="margin-left: 30px;">// Mover tags al nuevo nombre</p>
+                        <p style="margin-left: 15px;">// Si cambió el nombre, actualizar la lista y mover datos</p>
+                        <p style="margin-left: 15px;"><strong style="color: #dc3545;">si</strong> newName <strong>≠</strong> contactName:</p>
+                        <p style="margin-left: 30px;"><strong style="color: #667eea;">set</strong> contactList = TinyDB1.GetValue(<strong>"contacts"</strong>, make a list())</p>
+                        <p style="margin-left: 30px;"><strong style="color: #667eea;">set</strong> idx = index in list(<strong>contactName</strong>, contactList)</p>
+                        <p style="margin-left: 30px;"><strong style="color: #667eea;">replace list item</strong>(contactList, idx, newName)</p>
+                        <p style="margin-left: 30px;">TinyDB1.StoreValue(<strong>"contacts"</strong>, contactList)</p>
+                        <p>&nbsp;</p>
+                        <p style="margin-left: 30px;">// Mover contact_last_ al nuevo nombre</p>
+                        <p style="margin-left: 30px;">TinyDB1.StoreValue(<strong>join("contact_last_", newName)</strong>, TinyDB1.GetValue(<strong>join("contact_last_", contactName)</strong>, <strong>""</strong>))</p>
+                        <p>&nbsp;</p>
+                        <p style="margin-left: 30px;">// Borrar claves antiguas</p>
+                        <p style="margin-left: 30px;">TinyDB1.StoreValue(<strong>join("contact_phone_", contactName)</strong>, <strong>""</strong>)</p>
+                        <p style="margin-left: 30px;">TinyDB1.StoreValue(<strong>join("contact_days_", contactName)</strong>, <strong>""</strong>)</p>
+                        <p style="margin-left: 30px;">TinyDB1.StoreValue(<strong>join("contact_last_", contactName)</strong>, <strong>""</strong>)</p>
+                        <p>&nbsp;</p>
+                        <p style="margin-left: 15px;">// Guardar phone y days (con el nombre final, nuevo o igual)</p>
+                        <p style="margin-left: 15px;">TinyDB1.StoreValue(<strong>join("contact_phone_", newName)</strong>, TextBoxPhone.Text)</p>
+                        <p style="margin-left: 15px;">TinyDB1.StoreValue(<strong>join("contact_days_", newName)</strong>, currentDays)</p>
                         <p>&nbsp;</p>
                         <p style="margin-left: 15px;"><strong style="color: #667eea;">close screen</strong></p>
                     </div>
@@ -1110,7 +1142,17 @@
                     <h3 style="border: none; color: #27ae60; font-size: 1em;">🌳 cuando ButtonOutdoors.Click:</h3>
                     <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
                         <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> list = TinyDB1.GetValue(<strong>"activities_outdoors"</strong>, "")</p>
-                        <p style="margin-left: 15px;">set LabelActivity.Text = ...</p>
+                        <p style="margin-left: 15px;">set LabelActivity.Text =</p>
+                        <p style="margin-left: 30px;"><strong style="color: #1565c0;">select list item</strong>(list, <strong style="color: #e65100;">random integer</strong>(1, length of list(list)))</p>
+                    </div>
+                </div>
+
+                <div style="background: #f0f4ff; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #ffecd2;">
+                    <h3 style="border: none; color: #e67e22; font-size: 1em;">🎨 cuando ButtonCreativity.Click:</h3>
+                    <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> list = TinyDB1.GetValue(<strong>"activities_creativity"</strong>, "")</p>
+                        <p style="margin-left: 15px;">set LabelActivity.Text =</p>
+                        <p style="margin-left: 30px;"><strong style="color: #1565c0;">select list item</strong>(list, <strong style="color: #e65100;">random integer</strong>(1, length of list(list)))</p>
                     </div>
                 </div>
 
@@ -1245,12 +1287,16 @@
 
                 <div style="background: #f0f4ff; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #e91e63;">
                     <h3 style="border: none; color: #c2185b; font-size: 1em;">Procedimiento: checkSadness</h3>
+                    <p style="font-size: 0.85em; color: #888; margin: 5px 0 10px 0;">Necesita 4 variables globales: <strong>moodList, n, e1, e2, e3</strong> (inicializadas a "" o 0)</p>
                     <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
                         <p><strong style="color: #764ba2;">procedimiento</strong> checkSadness:</p>
-                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> moodList = TinyDB1.GetValue(<strong>"moods"</strong>, make a list())</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set global moodList</strong> = TinyDB1.GetValue(<strong>"moods"</strong>, make a list())</p>
                         <p style="margin-left: 15px;"><strong style="color: #dc3545;">si</strong> length of list(moodList) <strong>≥</strong> 3:</p>
-                        <p style="margin-left: 30px;"><strong style="color: #667eea;">set</strong> last3 = últimos 3 elementos de moodList</p>
-                        <p style="margin-left: 30px;"><strong style="color: #dc3545;">si</strong> <strong>ninguno</strong> de last3 es "happy":</p>
+                        <p style="margin-left: 30px;"><strong style="color: #667eea;">set global n</strong> = length of list(moodList)</p>
+                        <p style="margin-left: 30px;"><strong style="color: #667eea;">set global e1</strong> = select list item(moodList, n <strong>-</strong> 2)</p>
+                        <p style="margin-left: 30px;"><strong style="color: #667eea;">set global e2</strong> = select list item(moodList, n <strong>-</strong> 1)</p>
+                        <p style="margin-left: 30px;"><strong style="color: #667eea;">set global e3</strong> = select list item(moodList, n)</p>
+                        <p style="margin-left: 30px;"><strong style="color: #dc3545;">si</strong> e1 <strong>≠</strong> "happy" <strong>and</strong> e2 <strong>≠</strong> "happy" <strong>and</strong> e3 <strong>≠</strong> "happy":</p>
                         <p style="margin-left: 45px;">set LabelSuggestion.Text = <strong>"It looks like you've been feeling down. How about..."</strong></p>
                         <p style="margin-left: 45px;">set ButtonGoContacts.Visible = <strong>true</strong></p>
                         <p style="margin-left: 45px;">set ButtonGoActivities.Visible = <strong>true</strong></p>
