@@ -643,6 +643,7 @@
                         <p style="margin-left: 15px;"><strong style="color: #e83e8c;">call</strong> PhoneNumberTools1.<strong>GetContactNameListAsync</strong></p>
                         <p style="margin-left: 15px;"><strong style="color: #e83e8c;">call</strong> PhoneNumberTools1.<strong>GetPhoneNumberListAsync</strong></p>
                         <p style="margin-left: 15px;"><strong style="color: #764ba2;">call</strong> loadContactList&nbsp;&nbsp;&nbsp;<span style="color: #888;">// cargar contactos guardados en TinyDB</span></p>
+                        <p style="margin-left: 15px;"><strong style="color: #6f42c1;">call</strong> checkReminders&nbsp;&nbsp;&nbsp;<span style="color: #888;">// comprobar si hay que recordar contactar con alguien</span></p>
                     </div>
                 </div>
 
@@ -876,7 +877,7 @@
                 </div>
 
                 <div style="background: #f0f4ff; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #6f42c1;">
-                    <h3 style="border: none; color: #6f42c1; font-size: 1em;">Procedimiento: checkReminders (en Screen1.Initialize)</h3>
+                    <h3 style="border: none; color: #6f42c1; font-size: 1em;">Procedimiento: checkReminders</h3>
                     <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
                         <p><strong style="color: #764ba2;">procedimiento</strong> checkReminders:</p>
                         <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> contactList = TinyDB1.GetValue(<strong>"contacts"</strong>, make a list())</p>
@@ -897,23 +898,19 @@
                         <p style="margin-left: 45px;"><strong style="color: #667eea;">add items to list</strong>(reminders, name)</p>
                         <p style="margin-left: 45px;">// Resetear: guardar fecha de hoy</p>
                         <p style="margin-left: 45px;">TinyDB1.StoreValue(<strong>join("contact_last_", name)</strong>, today)</p>
-                    </div>
-                </div>
-
-                <div style="background: #f0f4ff; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #dc3545;">
-                    <h3 style="border: none; color: #c62828; font-size: 1em;">Mostrar recordatorios pendientes:</h3>
-                    <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
-                        <p><strong style="color: #dc3545;">si</strong> length of list(reminders) <strong>></strong> 0:</p>
-                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> message = <strong>"Time to reach out to: "</strong></p>
-                        <p style="margin-left: 15px;"><strong style="color: #c5a03f;">para cada</strong> name en reminders:</p>
-                        <p style="margin-left: 30px;">message = <strong>join(message, "\n• ", name)</strong></p>
                         <p>&nbsp;</p>
-                        <p style="margin-left: 15px;">Notifier1.ShowChooseDialog(</p>
-                        <p style="margin-left: 30px;">message: message</p>
-                        <p style="margin-left: 30px;">title: <strong>"🔔 Reminder"</strong></p>
-                        <p style="margin-left: 30px;">button1Text: <strong>"📞 Call first contact"</strong></p>
-                        <p style="margin-left: 30px;">button2Text: <strong>"OK, thanks!"</strong></p>
-                        <p style="margin-left: 15px;">)</p>
+                        <p style="margin-left: 15px;">// Mostrar recordatorios pendientes</p>
+                        <p style="margin-left: 15px;"><strong style="color: #dc3545;">si</strong> length of list(reminders) <strong>></strong> 0:</p>
+                        <p style="margin-left: 30px;"><strong style="color: #667eea;">set</strong> message = <strong>"Time to reach out to: "</strong></p>
+                        <p style="margin-left: 30px;"><strong style="color: #c5a03f;">para cada</strong> name en reminders:</p>
+                        <p style="margin-left: 45px;">message = <strong>join(message, "\n• ", name)</strong></p>
+                        <p>&nbsp;</p>
+                        <p style="margin-left: 30px;">Notifier1.ShowChooseDialog(</p>
+                        <p style="margin-left: 45px;">message: message</p>
+                        <p style="margin-left: 45px;">title: <strong>"🔔 Reminder"</strong></p>
+                        <p style="margin-left: 45px;">button1Text: <strong>"📞 Call first contact"</strong></p>
+                        <p style="margin-left: 45px;">button2Text: <strong>"OK, thanks!"</strong></p>
+                        <p style="margin-left: 30px;">)</p>
                     </div>
                 </div>
 
