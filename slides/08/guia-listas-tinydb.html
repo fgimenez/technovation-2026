@@ -216,7 +216,7 @@
                     <h3 style="border: none; color: #667eea; text-align: center;">Pasos en bloques:</h3>
                     <div style="font-family: monospace; font-size: 0.95em; line-height: 2; margin-top: 15px;">
                         <p><strong style="color: #c5a03f;">cuando</strong> Screen1.<strong>Initialize</strong></p>
-                        <p style="margin-left: 20px;"><strong style="color: #667eea;">si</strong> TinyDB1.GetValue(tag="quotes", default="") <strong>=</strong> ""</p>
+                        <p style="margin-left: 20px;"><strong style="color: #667eea;">si</strong> length of list(TinyDB1.GetValue("quotes", <strong style="color: #764ba2;">make a list</strong>())) <strong>=</strong> 0</p>
                         <p style="margin-left: 40px;"><strong style="color: #28a745;">entonces</strong> TinyDB1.StoreValue(</p>
                         <p style="margin-left: 60px;">tag = "quotes"</p>
                         <p style="margin-left: 60px;">value = <strong style="color: #764ba2;">make a list</strong>(</p>
@@ -230,7 +230,7 @@
                 </div>
 
                 <div class="tip-card">
-                    El <strong>if</strong> comprueba si ya hay datos. Así no se sobreescriben los datos cada vez que se abre la app.
+                    El <strong>if</strong> comprueba si la lista está vacía (longitud = 0). Si TinyDB ya tiene los datos guardados devuelve la lista completa y no los sobreescribe. Si es la primera vez que se abre la app, devuelve una lista vacía y los inicializa.
                 </div>
             </section>
 
@@ -968,7 +968,7 @@
                 <div style="background: #f0f4ff; border-radius: 15px; padding: 25px; margin: 20px 0; border-left: 5px solid #667eea;">
                     <div style="font-family: monospace; font-size: 0.9em; line-height: 1.8; margin-top: 10px;">
                         <p><strong style="color: #c5a03f;">cuando</strong> Screen1.<strong>Initialize</strong>:</p>
-                        <p style="margin-left: 15px;"><strong style="color: #667eea;">si</strong> TinyDB1.GetValue("quotes") = "":</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">si</strong> length of list(TinyDB1.GetValue("quotes", <strong style="color: #764ba2;">make a list</strong>())) = 0:</p>
                         <p style="margin-left: 30px;">TinyDB1.StoreValue("quotes", <strong style="color: #764ba2;">make a list</strong>(</p>
                         <p style="margin-left: 45px;">"It's never too late to make a new friend"</p>
                         <p style="margin-left: 45px;">"A phone call can brighten someone's whole day"</p>
@@ -1101,7 +1101,7 @@
                 <div style="background: #f0f4ff; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #ff9a9e;">
                     <h3 style="border: none; color: #c0392b; font-size: 1.1em;">🍳 Cooking</h3>
                     <div style="font-family: monospace; font-size: 0.85em; line-height: 1.7; margin-top: 8px;">
-                        <p><strong style="color: #667eea;">si</strong> TinyDB1.GetValue("activities_cooking") = "":</p>
+                        <p><strong style="color: #667eea;">si</strong> length of list(TinyDB1.GetValue("activities_cooking", <strong style="color: #764ba2;">make a list</strong>())) = 0:</p>
                         <p style="margin-left: 15px;">TinyDB1.StoreValue("activities_cooking", <strong style="color: #764ba2;">make a list</strong>(</p>
                         <p style="margin-left: 30px;">"Bake cookies together", "Make an omelette",</p>
                         <p style="margin-left: 30px;">"Prepare a smoothie", "Make popcorn"</p>
@@ -1112,7 +1112,7 @@
                 <div style="background: #f0f4ff; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #84fab0;">
                     <h3 style="border: none; color: #27ae60; font-size: 1.1em;">🌳 Outdoors</h3>
                     <div style="font-family: monospace; font-size: 0.85em; line-height: 1.7; margin-top: 8px;">
-                        <p><strong style="color: #667eea;">si</strong> TinyDB1.GetValue("activities_outdoors") = "":</p>
+                        <p><strong style="color: #667eea;">si</strong> length of list(TinyDB1.GetValue("activities_outdoors", <strong style="color: #764ba2;">make a list</strong>())) = 0:</p>
                         <p style="margin-left: 15px;">TinyDB1.StoreValue("activities_outdoors", <strong style="color: #764ba2;">make a list</strong>(</p>
                         <p style="margin-left: 30px;">"Walk in the park", "Go to a market",</p>
                         <p style="margin-left: 30px;">"Visit a museum", "Sit at a terrace"</p>
