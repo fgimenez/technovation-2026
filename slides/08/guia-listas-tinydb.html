@@ -882,6 +882,7 @@
                         <p><strong style="color: #764ba2;">procedimiento</strong> checkReminders:</p>
                         <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> contactList = TinyDB1.GetValue(<strong>"contacts"</strong>, make a list())</p>
                         <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> reminders = make a list()</p>
+                        <p style="margin-left: 15px;"><strong style="color: #667eea;">set global</strong> reminderFirstContact = <strong>""</strong></p>
                         <p style="margin-left: 15px;"><strong style="color: #667eea;">set</strong> today = Clock1.FormatDate(Clock1.Now())</p>
                         <p>&nbsp;</p>
                         <p style="margin-left: 15px;"><strong style="color: #c5a03f;">para cada</strong> name en contactList:</p>
@@ -901,6 +902,7 @@
                         <p>&nbsp;</p>
                         <p style="margin-left: 15px;">// Mostrar recordatorios pendientes</p>
                         <p style="margin-left: 15px;"><strong style="color: #dc3545;">si</strong> length of list(reminders) <strong>></strong> 0:</p>
+                        <p style="margin-left: 30px;"><strong style="color: #667eea;">set global</strong> reminderFirstContact = <strong style="color: #1565c0;">select list item</strong>(reminders, 1)</p>
                         <p style="margin-left: 30px;"><strong style="color: #667eea;">set</strong> message = <strong>"Time to reach out to: "</strong></p>
                         <p style="margin-left: 30px;"><strong style="color: #c5a03f;">para cada</strong> name en reminders:</p>
                         <p style="margin-left: 45px;">message = <strong>join(message, "\n• ", name)</strong></p>
@@ -928,6 +930,25 @@
                         <div style="font-size: 2em; margin-bottom: 5px;">✅</div>
                         <p style="font-weight: bold; color: #2e7d32; font-size: 0.95em;">Al cerrar el aviso...</p>
                         <p style="margin-top: 5px; font-size: 0.9em;">La fecha se actualiza a hoy.<br>Si se reabre la app, <strong>no se repite</strong> el recordatorio.</p>
+                    </div>
+                </div>
+
+                <div style="background: #fff8e1; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #f59f00;">
+                    <h3 style="border: none; color: #e67700; font-size: 1em;">Variable global necesaria (en el cajón Variables):</h3>
+                    <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
+                        <p><strong style="color: #667eea;">initialize global</strong> <strong>reminderFirstContact</strong> = <strong>""</strong></p>
+                    </div>
+                </div>
+
+                <div style="background: #f0f4ff; border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #dc3545;">
+                    <h3 style="border: none; color: #c62828; font-size: 1em;">Responder al botón del diálogo:</h3>
+                    <div style="font-family: monospace; font-size: 0.85em; line-height: 1.8; margin-top: 8px;">
+                        <p><strong style="color: #c5a03f;">cuando</strong> Notifier1.<strong>AfterChoosing</strong>(choice):</p>
+                        <p style="margin-left: 15px;"><strong style="color: #dc3545;">si</strong> choice = <strong>"📞 Call first contact"</strong>:</p>
+                        <p style="margin-left: 30px;"><strong style="color: #667eea;">set</strong> phone = TinyDB1.GetValue(<strong>join("contact_phone_", reminderFirstContact)</strong>, <strong>""</strong>)</p>
+                        <p style="margin-left: 30px;"><strong style="color: #dc3545;">si</strong> phone <strong>≠</strong> <strong>""</strong>:</p>
+                        <p style="margin-left: 45px;"><strong style="color: #667eea;">call</strong> PhoneCall1.<strong>MakePhoneCall</strong></p>
+                        <p style="margin-left: 60px;">phoneNumber: phone</p>
                     </div>
                 </div>
 
